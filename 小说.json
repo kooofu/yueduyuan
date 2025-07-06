@@ -57,7 +57,7 @@
     "bookSourceName" : "奇点中文",
     "respondTime" : 162,
     "loginUrl" : "",
-    "customOrder" : 2,
+    "customOrder" : 300,
     "enabledCookieJar" : true,
     "ruleToc" : {
       "chapterUrl" : "url",
@@ -68,64 +68,7 @@
     "errorMessage" : "成功",
     "bookSourceComment" : "\/\/25.04.27\n套用同模板网站：\nwww.69shu.org"
   },
-  {
-    "bookUrlPattern" : "",
-    "bookSourceName" : "新龙小说",
-    
-    "ruleExplore" : {
-
-    },
-    "enabledExplore" : true,
-    "lastUpdateTime" : 1745775324385,
-    "concurrentRate" : "",
-    "jsLib" : "",
-    "weight" : 0,
-    "bookSourceType" : 0,
-    "loginUi" : "",
-    "exploreUrl" : "@js:\nvar result = [];\njava.toast(\"🔥正在刷新列表,请稍等！\");\nvar push = (title, url, size) => result.push({\n    \"title\": title,\n    \"url\": url,\n    \"style\": {\n        \"layout_flexGrow\": 1,\n        \"layout_flexBasisPercent\": size\n    }\n});\nvar baseUrl = \"https:\/\/www3.longtimebook.com\/category\/\";\nvar tag = java.ajax(baseUrl);\nif (tag) {\n    var a = org.jsoup.Jsoup.parse(tag).select(\".CGsectionTwo-left p span a\");\n    push(\"🔥分类小说🔥\", null, 1);\n    for (var i = 0; i < a.length ; i++) {\n        var title = a[i].text();\n        var url = a[i].attr(\"href\");\n        var size = 0.25;\n        title = String(title).replace(\/\\s\/g, \"\");\n        url = String(url).replace(\/$\/,'{{page}}.html');      \n        push(title, url, size);\n    }\n} else {\n  java.toast(\"🤔列表刷新失败！！！\");     \n} \nJSON.stringify(result);",
-    "customOrder" : 3,
-    "enabledCookieJar" : false,
-    "loginCheckJs" : "",
-    "ruleContent" : {
-      "payAction" : "",
-      "content" : "@js:\na=result.match(\/d\\(\"(.*)\", \/)[1]\nb=result.match(\/d\\(\".*\", \"(.*)\"\/)[1]\nc=java.md5Encode(b)\nkey=c.slice(16)\niv=c.slice(0,16)\nre=java.createSymmetricCrypto(\"AES\/CBC\/PKCS7Padding\", key, iv).decryptStr(a)",
-      "title" : "",
-      "webJs" : "",
-      "imageDecode" : "",
-      "imageStyle" : "",
-      "sourceRegex" : ""
-    },
-    "searchUrl" : "\/search\/{{key}}\/{{page}}",
-    "ruleToc" : {
-      "chapterUrl" : "href",
-      "chapterName" : "data-real||text",
-      "chapterList" : ".BCsectionTwo-top li a\n<js>\ntry {\na=src.match(\/var originalOrder = \\[.*\\];\/)[0]\neval(String(a))\n\nlist=[]\nfor (i in result) {\nlist[originalOrder[i]]=result[i]\n}\n\nlist\n} catch(err) {\nresult\n}\n\n<\/js>"
-    },
-    "bookSourceUrl" : "https:\/\/www3.longtimebook.com\/",
-    "key" : "https:\/\/www3.longtimebook.com\/",
-    "bookSourceGroup" : "小说",
-    "header" : "@js:\nJSON.stringify({\n\"Accept-Language\": \"zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7\"\n})",
-    "bookSourceComment" : "\/\/By情无羁25.04.28",
-    "ruleBookInfo" : {
-      "intro" : "[property=\"og:description\"]@content",
-      "tocUrl" : "{{baseUrl}}catalog\/",
-      "coverUrl" : "[property=\"og:image\"]@content",
-      "lastChapter" : "[property=\"og:novel:lastest_chapter_name\"]@content"
-    },
-    "enabled" : true,
-    "respondTime" : 231,
-    "loginUrl" : "",
-    "variableComment" : "",
-    "errorMessage" : "成功",
-    "ruleSearch" : {
-      "author" : "span.2@a@text||span.0@text",
-      "kind" : "span.0@a@text",
-      "name" : "span.1@a@text||.title@text",
-      "intro" : "p.-2@text",
-      "bookList" : ".SHsectionThree-middle p||.CGsectionTwo-right-content-unit",
-      "bookUrl" : "a.1@href"
-    }
-  },
+  
   {
     "concurrentRate" : "",
     "bookSourceName" : "读了小说",
@@ -156,7 +99,7 @@
     "ruleExplore" : {
 
     },
-    "customOrder" : 7,
+    "customOrder" : 400,
     "key" : "http:\/\/m.qibazw.com\/",
     "ruleContent" : {
       "imageDecode" : "",
@@ -305,7 +248,7 @@
       "coverUrl" : "img@data-original"
     },
     "concurrentRate" : "",
-    "customOrder" : 12,
+    "customOrder" : 100,
     "respondTime" : 886,
     "exploreUrl" : "@js:\n    sort = [];\n    push = (title, url, type) =>  \n    sort.push({\n        title: title,\n        url: url,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: type\n       }\n     });\n     push(\"༺ˇ»`ʚ全部分类ɞ´«ˇ༻\", \"\", \"1\")\n     url = source.getKey();\n     o = org.jsoup.Jsoup.parse(java.ajax(url));\n     s = o.select('div[class=\"nav_c clear\"] li a');\n     for(i in s){\n         if(i >= 1){\n         u = String(s[i].attr(\"href\")).replace(\/(.*)\\\/1\\.html\/,\"$1\/{{page}}.html\");\n         push(s[i].text(), u, \"0.25\")\n       }\n     };\n    JSON.stringify(sort);",
     "enabled" : true,
@@ -608,7 +551,7 @@
       "lastChapter" : ".s3@text",
       "kind" : ".s1@text##\\[|\\]",
       "author" : ".s4@text",
-      "checkKeyWord" : "剑来",
+      "checkKeyWord" : "都市龙门",
       "name" : ".s2@text",
       "bookUrl" : "a@href",
       "coverUrl" : "a.0@href##.*?(\\d+)(\\d{3}).*##http:\/\/www.biqumx.com\/files\/article\/image\/$1\/$1$2\/$1$2s.jpg"
@@ -1836,7 +1779,7 @@
     
     "bookSourceUrl" : "https:\/\/www.tianxibook.com\/",
     "key" : "https:\/\/www.tianxibook.com\/",
-    "customOrder" : 78
+    "customOrder" : 2000078
   },
   {
     "errorMessage" : "成功",
@@ -2308,7 +2251,7 @@
       "kind" : "0",
       "name" : "h4@text",
       "bookList" : ".index_qb > a.list",
-      "checkKeyWord" : "10",
+      "checkKeyWord" : "都市之仙道独尊",
       "bookUrl" : "href"
     },
     "ruleBookInfo" : {
@@ -3759,7 +3702,7 @@
         "coverUrl" : "img@src",
         "lastChapter" : "b@text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]"
       },
-      "customOrder" : 251,
+      "customOrder" : 8,
       "header" : "",
       "errorMessage" : "成功",
       "bookSourceUrl" : "http:\/\/www.80zw.la",
@@ -3996,7 +3939,7 @@
       "enabledCookieJar" : true,
       "exploreUrl" : "玄奇::\/fenlei\/1\/{{page}}\/\n高武::\/fenlei\/2\/{{page}}\/\n修仙::\/fenlei\/3\/{{page}}\/\n都市::\/fenlei\/4\/{{page}}\/\n军事::\/fenlei\/5\/{{page}}\/\n历史::\/fenlei\/6\/{{page}}\/\n游体::\/fenlei\/7\/{{page}}\/\n科幻::\/fenlei\/8\/{{page}}\/\n恐怖::\/fenlei\/9\/{{page}}\/\n次元::\/fenlei\/10\/{{page}}\/\n女生::\/fenlei\/11\/{{page}}\/",
       "loginUrl" : "",
-      "customOrder" : 254,
+      "customOrder" : 13,
       "bookSourceType" : 0,
       "searchUrl" : "{{cookie.removeCookie(source.getKey())}}\n\/search\/,{\n  \"method\": \"post\",\n  \"body\": \"searchkey={{key}}&Submit=\"\n}",
       "ruleBookInfo" : {
@@ -4191,7 +4134,7 @@
       "bookSourceName" : "🎉 饿狼小说",
       "enabled" : true,
       "respondTime" : 226,
-      "customOrder" : 257,
+      "customOrder" : 35,
       "enabledCookieJar" : true,
       
       "bookSourceGroup" : "🎉 精选",
@@ -4255,7 +4198,7 @@
       "bookSourceComment" : "",
       "bookSourceName" : "🎉 歌书小说",
       "bookSourceType" : 0,
-      "customOrder" : 258,
+      "customOrder" : 40,
       "ruleBookInfo" : {
         "lastChapter" : ".directoryArea@a.0@text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]",
         "name" : "span.title@text",
@@ -4322,7 +4265,7 @@
       "jsLib" : "",
       "variableComment" : "",
       "header" : "",
-      "customOrder" : 259,
+      "customOrder" : 5,
       "loginUrl" : "",
       
       "ruleSearch" : {
@@ -4523,7 +4466,7 @@
       "enabledCookieJar" : true,
       
       "weight" : 0,
-      "customOrder" : 263,
+      "customOrder" : 6,
       "loginUrl" : "",
       "ruleExplore" : {
         "coverUrl" : "a.0@href##.+\\D((\\d+)\\d{3})\\D##http:\/\/img.5299txt.net\/$2\/$1\/$1s.jpg###",
@@ -4612,7 +4555,7 @@
       "lastUpdateTime" : 1734351902345,
       
       "key" : "http:\/\/www.92xs.info",
-      "customOrder" : 264,
+      "customOrder" : 7,
       "bookSourceName" : "🎉 就爱文学",
       "loginUrl" : ""
     },
@@ -4655,7 +4598,7 @@
       "jsLib" : "",
       "enabledCookieJar" : true,
       "bookSourceName" : "🎉 乐文阁网",
-      "customOrder" : 265,
+      "customOrder" : 22,
       "ruleSearch" : {
         "coverUrl" : "img@src",
         "bookUrl" : "a.0@href",
@@ -4690,6 +4633,7 @@
         "coverUrl" : "a.1@href##.+\\D((\\d+)\\d{3})\\D##\/files\/article\/image\/$2\/$1\/$1s.jpg###",
         "lastChapter" : "a.2@text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]",
         "kind" : "a.0@text&&td.6:4@text##\\[|\\]",
+        "checkKeyWord" : "10",
         "author" : "span@text"
       },
       "key" : "http:\/\/www.mayitxt.org",
@@ -4752,7 +4696,7 @@
       "bookSourceComment" : "\/\/网站不稳定，正文下一页不能正常显示这是网站本身原因，只能等它恢复，同库网站也会出现同问题。\n\/\/同库(品书小说)：https:\/\/m.vodtw.xyz\n\/\/同库(看书小说)：https:\/\/m.kanshull.xyz\n@js: value = key;\nul = source.key + \"\/public\/js\/common1.js?v=1.0.3\";\nvc = java.ajax(ul);\nse = vc.match(\/location\\.href=(.*);\/)[1];\neval(se);",
       "jsLib" : "",
       "weight" : 0,
-      "customOrder" : 269,
+      "customOrder" : 25,
       "loginCheckJs" : "",
       
       "respondTime" : 1085,
@@ -4822,7 +4766,7 @@
       "bookSourceComment" : "\/\/网站加载慢，正文冗余垃圾极多。",
       "enabledCookieJar" : true,
       "enabled" : true,
-      "customOrder" : 272,
+      "customOrder" : 26,
       "ruleExplore" : {
 
       },
@@ -4986,7 +4930,7 @@
         "bookUrl" : "a.1@href",
         "bookList" : ".item"
       },
-      "customOrder" : 277,
+      "customOrder" : 30,
       "bookSourceName" : "🎉 搜搜小说",
       "respondTime" : 18000000,
       "ruleBookInfo" : {
@@ -5066,7 +5010,7 @@
       "key" : "http:\/\/www.xtangsanshu.com",
       "enabledCookieJar" : true,
       "exploreUrl" : "",
-      "customOrder" : 278,
+      "customOrder" : 31,
       "concurrentRate" : "",
       "bookSourceUrl" : "http:\/\/www.xtangsanshu.com",
       "ruleSearch" : {
@@ -5108,7 +5052,7 @@
       "header" : "",
       "enabled" : true,
       "jsLib" : "",
-      "customOrder" : 279,
+      "customOrder" : 32,
       "ruleSearch" : {
         "lastChapter" : "a.3@text",
         "bookList" : ".bookbox",
@@ -5197,7 +5141,7 @@
 
       },
       "header" : "{\"User-Agent\": \"Mozilla\/5.0 (Linux; Android 9) Mobile Safari\/537.36\"}",
-      "customOrder" : 281,
+      "customOrder" : 33,
       "ruleToc" : {
         "chapterList" : "id.list@dl@a",
         "chapterUrl" : "href",
@@ -5264,7 +5208,7 @@
         "bookUrl" : "@onclick@js:result.match(\/\\('(.*?)', '', ''\\)\/)[1]",
         "coverUrl" : "img@src"
       },
-      "customOrder" : 285,
+      "customOrder" : 36,
       "ruleToc" : {
         "chapterName" : "text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]",
         "chapterUrl" : "href",
@@ -5283,7 +5227,7 @@
       "bookSourceUrl" : "http:\/\/www.jjjjxs.com",
       
       "weight" : 0,
-      "customOrder" : 286,
+      "customOrder" : 35,
       "bookSourceType" : 0,
       "jsLib" : "",
       "ruleContent" : {
@@ -5361,7 +5305,7 @@
       },
       "bookSourceUrl" : "https:\/\/www.huanxiangji.net",
       "weight" : 0,
-      "customOrder" : 288,
+      "customOrder" : 40,
       "ruleSearch" : {
         "author" : ".s4@text",
         "lastChapter" : "a.1@text",
@@ -6852,7 +6796,7 @@
         "name" : "@JSon:$.novelname||$.novelName",
         "bookUrl" : "@JSon:$.novelid||$.novelId@js:'http:\/\/android.jjwxc.net\/androidapi\/novelbasicinfo?novelId='+result",
         "author" : "@JSon:$.authorname||$.authorName",
-        "bookList" : "@JSon:$.*[?(@.novelName)]&&$.*[?(@.novelname)]\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>"
+        "bookList" : "@JSon:$.*[?(@.novelName)]&&$.*[?(@.novelname)]>"
       },
       "customOrder" : -3,
       "bookUrlPattern" : "",
@@ -6865,7 +6809,7 @@
       "concurrentRate" : "",
       "enabledCookieJar" : true,
       "bookSourceName" : "💰晋江文学①",
-      "bookSourceType" : 0,
+      "bookSourceType" : 1000,
       "loginUi" : "",
       "enabled" : true,
       "loginCheckJs" : "",
@@ -6899,7 +6843,7 @@
         "name" : "class.content@h3@tag.a@text",
         "author" : "class.content@tag.span.0@tag.a@text",
         "bookUrl" : "class.content@h3@tag.a@href",
-        "bookList" : "class.list_details@li\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "class.list_details@li>",
         "intro" : "class.intro@text",
         "wordCount" : "class.content@tag.span.1@tag.a@text||##最新章节.*",
         "lastChapter" : "class.details@tag.span@a@text##最新章节"
@@ -6984,7 +6928,7 @@
         "lastChapter" : "@js:java.get('last')",
         "kind" : "http:\/\/book.sfacg.com\/Novel\/{$.NovelID}\/@js:\nimportClass(org.jsoup.Jsoup);\nresult=Jsoup.parse(java.ajax(result));\nvar intro=String(result.select(\".introduce\").text()).trim();\nvar last=result.select(\".chapter-title a\").text();\nvar tags=result.select(\".text-row:eq(0)\").text()\njava.put('intro',intro);\njava.put('last',last);\ntags=tags.match(\/类型：(.*?)\\s字数：(.*?)字\\[(.*?)\\]\\s.*\/);\ntags.shift();\ntags.join(',').replace(\/已|中\/,'');",
         "name" : "$.NovelName",
-        "bookList" : "$.Novels[0,1]\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>"
+        "bookList" : "$.Novels[0,1]>"
       },
       "concurrentRate" : "",
       "ruleBookInfo" : {
@@ -7040,7 +6984,7 @@
         "kind" : "$.categoryName",
         "name" : "$.name",
         "intro" : "$.summary",
-        "bookList" : "$.list\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "$.list>",
         "coverUrl" : "$.cover",
         "bookUrl" : "https:\/\/readbook-service-freebook.cread.com\/cx\/bookDetailYS?bookid={{$.id}}"
       },
@@ -7098,7 +7042,7 @@
         "bookUrl" : "tag.a@href",
         "coverUrl" : "tag.img@src",
         "name" : "tag.a.0@text",
-        "bookList" : "tag.ul\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "tag.ul>",
         "author" : "tag.br@text##.综合信息：|\\\/.*"
       },
       "exploreUrl" : "",
@@ -7142,7 +7086,7 @@
       "ruleSearch" : {
         "name" : "$.title",
         "intro" : "$.abstract",
-        "bookList" : "$.data.state[?(@.dataName == 'novel_search_list')].items[*]\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "$.data.state[?(@.dataName == 'novel_search_list')].items[*]>",
         "checkKeyWord" : "大王饶命",
         "author" : "$.author",
         "coverUrl" : "$.cover_url",
@@ -7251,7 +7195,7 @@
         "lastChapter" : "{{$.lastchaptertitle}} • {{$.updateTimeFull}}",
         "wordCount" : "$.wordcount",
         "intro" : "&nbsp;&nbsp;🏷️标签：\n　　{{String(java.get(\"m\")).replace(\/\t\/g,'∣')}}\n───────\n周点击：{{$.clickcount_days_7}} 总点击：{{$.clickcount_total}}\n周打赏：{{$.rewardcount_week}} 月打赏：{{$.rewardcount_month}} 总打赏：{{$.rewardcount_total}}\n周收藏：{{$.shelfcount_week}} 总收藏：{{$.shelfcount_total}}\n评论数：{{$.topiccount}}\n───────\n{{$.bookinfo}}",
-        "bookList" : "$.pageUtil.pageList.*\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "$.pageUtil.pageList.*>",
         "kind" : "{{String(java.getString('$.bookmarks')).substring(0,27).replace(\/\\s\/g,',')}}@put:{m:$.bookmarks}",
         "name" : "$.bookname",
         "author" : "$.authorname",
@@ -7327,7 +7271,7 @@
       "errorMessage" : "成功",
       "variableComment" : "",
       "ruleSearch" : {
-        "bookList" : "class.bookbox@class.p10\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "class.bookbox@class.p10>",
         "author" : "class.author@text##作者：",
         "coverUrl" : "class.bookimg@img@src",
         "kind" : "class.cat@text##分类：",
@@ -7396,7 +7340,7 @@
       "respondTime" : 215,
       "ruleSearch" : {
         "coverUrl" : "tag.td.0@a@href<js>\nvar id = result.match(\/(\\d+)\\\/?$\/)[1];\nvar iid = parseInt(id\/1000);\n'http:\/\/www.00shu.com\/files\/article\/image\/'+iid+'\/'+id+'\/'+id+'s.jpg';\n<\/js>",
-        "bookList" : "class.grid@tr!0\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+        "bookList" : "class.grid@tr!0>",
         "kind" : "tag.td.4@text",
         "name" : "tag.td.0@a@text",
         "bookUrl" : "tag.td.0@a@href",
@@ -7433,7 +7377,7 @@
         "name" : ".info span:nth-child(1)@text ##.*《|》.*",
         "lastChapter" : ".last@text",
         "bookUrl" : "a:nth-child(1)@href",
-        "bookList" : ".librarylist li \n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>"
+        "bookList" : ".librarylist li >"
       },
       "lastUpdateTime" : 1742798921641,
       "exploreUrl" : "总点击:: \/top\/allvisit.html\n排行::\/top\/monthvisit.html\n",
@@ -7532,7 +7476,7 @@
         "ruleSearch" : {
           "intro" : "a@rel||a@title##^简介：|<br>|\\n.+",
           "author" : "a[href~=author]@text",
-          "bookList" : ".cytable tr,tr[bgcolor~=eefaee]||ul li:has(a[href~=book2])\n<js>\nconst _0xa39a=[\"amluZ2JhaQ==\",\"aHR0cHM6Ly9xeXl1YXBpLmNvbS8=\",\"aHR0cHM6Ly9nY29yZS5qc2RlbGl2ci5uZXQvZ2gveGlhb2hhbjIzMS9kZWNvZGVPYmZ1c2NhdG9yQG1haW4v\",\"aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvckBtYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hpYW9oYW4yMzEvZGVjb2RlT2JmdXNjYXRvci9tYWluLw==\",\"aHR0cHM6Ly9yYXcuZ2l0bWlycm9yLmNvbS94aWFvaGFuMjMxL2RlY29kZU9iZnVzY2F0b3IvbWFpbi8=\",\"amluZ2JhaS5qc29u\",\"bWFw\",\"Z2V0\",\"bWQ1RW5jb2RlMTY=\",\"Y2FjaGVfYXBpX2ppbmdiYWk=\",\"Ym9keQ==\",\"aW5jbHVkZXM=\",\"5r+A5rS76K+35rGC6ZSZ6K+v\",\"cHV0\",\"bG9n\",\"Cua\/gOa0u+ivt+axgumUmeivr++8jOiHquWKqOWwneivleWFtuS7lua\/gOa0u+aOpeWPow==\",\"bGVuZ3Ro\",\"cGFyc2U=\",\"dGlwcw==\",\"Y2FjaGVfYXBpX2ppbmdiYWlfdHJ1ZQ==\",\"bm93\",\"bG9uZ1RvYXN0\",\"amF2YQ==\",\"bGFuZw==\",\"VGhyZWFk\",\"c2xlZXA=\"],_0x402a=function(_0xa39a84,_0x402a99){_0xa39a84=_0xa39a84-0x0;let _0x4230b4=_0xa39a[_0xa39a84];if(_0x402a.aNXmZm===void 0x0){(function(){let _0x1b3c40;try{const _0x2534e7=Function(\"return (function() {}.constructor(\\\"return this\\\")( ));\");_0x1b3c40=_0x2534e7()}catch(_0x8b999){_0x1b3c40=window}const _0x2feca1=\"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=\";_0x1b3c40.atob||(_0x1b3c40.atob=function(_0x5cd655){const _0x3cfea0=String(_0x5cd655).replace(new RegExp(\"=+$\",\"\"),\"\");let _0x364f03=\"\";for(let _0x195d18=0x0,_0x1b84c5,_0x48727c,_0x10019c=0x0;_0x48727c=_0x3cfea0.charAt(_0x10019c++);~_0x48727c&&(_0x1b84c5=_0x195d18%0x4?_0x1b84c5*0x40+_0x48727c:_0x48727c,_0x195d18++%0x4)?_0x364f03+=String.fromCharCode(0xff&_0x1b84c5>>(-0x2*_0x195d18&0x6)):0x0)_0x48727c=_0x2feca1.indexOf(_0x48727c);return _0x364f03})})();_0x402a.Ngzgut=function(_0x4805d7){const _0x397870=atob(_0x4805d7);let _0x23b065=[];for(let _0x304c54=0x0,_0x3ad9ea=_0x397870.length;_0x304c54<_0x3ad9ea;_0x304c54++)_0x23b065+=\"%\"+(\"00\"+_0x397870.charCodeAt(_0x304c54).toString(0x10)).slice(-0x2);return decodeURIComponent(_0x23b065)};_0x402a.doLsPS={};_0x402a.aNXmZm=!0x0}const _0x4366de=_0x402a.doLsPS[_0xa39a84];_0x4366de===void 0x0?(_0x4230b4=_0x402a.Ngzgut(_0x4230b4),_0x402a.doLsPS[_0xa39a84]=_0x4230b4):_0x4230b4=_0x4366de;return _0x4230b4};function user_Check(){Account=_0x402a(\"0x0\");urls=[_0x402a(\"0x1\"),_0x402a(\"0x2\"),_0x402a(\"0x3\"),_0x402a(\"0x4\"),_0x402a(\"0x5\"),_0x402a(\"0x6\")];filepath=_0x402a(\"0x7\");Urls=urls[_0x402a(\"0x8\")](function(_0x1bd888){return _0x1bd888+filepath});apiBaseUrl=String(cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")))||Urls[0x0]);let _0x17d184=\"\";try{_0x17d184=java[_0x402a(\"0x9\")](apiBaseUrl,{})[_0x402a(\"0xc\")]();if(!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){throw new Error(_0x402a(\"0xe\"))}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}catch{java[_0x402a(\"0x10\")](apiBaseUrl+_0x402a(\"0x11\"))}if(!apiBaseUrl||!String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){for(i=0x0;i<Urls[_0x402a(\"0x12\")];i++){if(String(Urls[i])[_0x402a(\"0xd\")](apiBaseUrl)){continue}try{_0x17d184=java[_0x402a(\"0x9\")](Urls[i],{})[_0x402a(\"0xc\")]();if(String(_0x17d184)[_0x402a(\"0xd\")](_0x402a(\"0x0\"))){apiBaseUrl=Urls[i];break}}catch{continue}}cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0xb\")),apiBaseUrl,0x15180)}User=JSON[_0x402a(\"0x13\")](_0x17d184)[Account];Tips=JSON[_0x402a(\"0x13\")](_0x17d184)[_0x402a(\"0x14\")];return User==!0x0||cache[_0x402a(\"0x9\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")))?{User:User}:(cache[_0x402a(\"0xf\")](java[_0x402a(\"0xa\")](_0x402a(\"0x15\")),0x1,0x15180),Code(Tips[0x0]),{User:User})}var User=\"\";user_Check();User!==!0x0?res=result:res=result;function Code(_0xfc028){java[_0x402a(\"0x10\")](_0xfc028);let _0x56c54a=Date[_0x402a(\"0x16\")]();while(Date[_0x402a(\"0x16\")]()-_0x56c54a<0x3a98){java[_0x402a(\"0x17\")](_0xfc028);Packages[_0x402a(\"0x18\")][_0x402a(\"0x19\")][_0x402a(\"0x1a\")][_0x402a(\"0x1b\")](0x7d0)}}res;\n<\/js>",
+          "bookList" : ".cytable tr,tr[bgcolor~=eefaee]||ul li:has(a[href~=book2])>",
           "name" : "a[href~=book2]@text||tag.a.1@text",
           "bookUrl" : "##(?:\/book2\/|novelid=)(\\d+)##http:\/\/app-cdn.jjwxc.net\/androidapi\/novelbasicinfo?novelId=$1###",
           "kind" : "td:has(a)~td:lt(7)!0:2:4:5:6@text||span,font@text##\\[删\\]",
@@ -7553,6 +7497,335 @@
           "updateTime" : "{{$.isvip}}🍴{{$.chapterdate}}   {{$.chaptersize}}字   {{$.chapterintro##^\\s*}}##^🍴|^0字  |0000-00-00.*@js:result.replace(\/2🍴\/g,'💰').replace(\/0🍴\/g,'　').replace(\/💰$\/g,'').replace(\/(\\s\\d+:\\d+):\\d+\/g,'$1')",
           "chapterList" : "$.chapterlist"
         }
-      }
+      },
+          {
+            "ruleToc" : {
+              "chapterList" : "id.list@dd@a",
+              "chapterUrl" : "href",
+              "chapterName" : "text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]"
+            },
+            "bookUrlPattern" : "",
+            "loginUi" : "",
+            "bookSourceComment" : "",
+            "ruleContent" : {
+              "replaceRegex" : "##.*\\\/aa.*",
+              "sourceRegex" : "",
+              "webJs" : "",
+              "payAction" : "",
+              "imageDecode" : "",
+              "imageStyle" : "",
+              "title" : "",
+              "content" : "id.content@p@text"
+            },
+            "errorMessage" : "成功",
+            "concurrentRate" : "",
+            "respondTime" : 1167,
+            "bookSourceName" : "笔趣阁🇨🇳",
+            "bookSourceUrl" : "http:\/\/www.biqu520.net",
+            "lastUpdateTime" : 1721435536274,
+            "enabledCookieJar" : true,
+            "customOrder" : 10,
+            "searchUrl" : "\/modules\/article\/search.php?searchkey={{key}}",
+            "loginUrl" : "",
+            "header" : "",
+            "key" : "http:\/\/www.biqu520.net",
+            "exploreUrl" : "",
+            "ruleSearch" : {
+              "coverUrl" : "a.0@href<js>\nvar id = result.match(\/(\\d+)\\\/?$\/)[1];\nvar iid = parseInt(id\/1000);\n'http:\/\/r.m.biqu520.net\/files\/article\/image\/'+iid+'\/'+id+'\/'+id+'s.jpg';\n<\/js>",
+              "author" : "td.2@text",
+              "bookUrl" : "a.0@href",
+              "lastChapter" : "a.1@text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]",
+              "bookList" : "tbody@tr!0",
+              "name" : "a.0@text",
+              "kind" : "td.5:4@text"
+            },
+            "enabledExplore" : true,
+            "enabled" : true,
+            "variableComment" : "",
+            "bookSourceType" : 0,
+            "ruleExplore" : {
+
+            },
+            "jsLib" : "",
+            "loginCheckJs" : "",
+            "weight" : -5,
+            "ruleBookInfo" : {
+              "lastChapter" : "id.list@a.0@text##正文卷.|正文.|VIP卷.|默认卷.|卷_|VIP章节.|免费章节.|章节目录.|最新章节.|[\\(（【].*?[求更票谢乐发订合补加架字修Kk].*?[】）\\)]",
+              "name" : "id.info@h1@text",
+              "intro" : "id.intro@text##(^|[。！？]+[”」）】]?)##$1<br>",
+              "author" : "id.info@p.0@text##.*：",
+              "coverUrl" : "id.fmimg@img@src",
+              "kind" : ".con_top@a.-1@text&&id.info@p.2@text##.*：|小说"
+            },
+            "bookSourceGroup" : "精选"
+          },
+              {
+                "key" : "http:\/\/www.xs55.org",
+                "weight" : 1,
+                "bookSourceType" : 0,
+                "enabledCookieJar" : true,
+                "ruleToc" : {
+                  "chapterList" : "#content_1@a",
+                  "chapterUrl" : "href",
+                  "nextTocUrl" : "option@value",
+                  "chapterName" : "text"
+                },
+                "errorMessage" : "成功",
+                "bookUrlPattern" : "",
+                "loginUrl" : "",
+                "ruleSearch" : {
+                  "kind" : ".btm@em.1@text",
+                  "bookList" : "class.item",
+                  "author" : ".btm@a.0@text",
+                  "coverUrl" : "class.image@a@img@data-original",
+                  "name" : "dl@dt@a@text",
+                  "wordCount" : ".btm@en.0@text",
+                  "bookUrl" : "dl@dt@a@href",
+                  "intro" : "dd@text"
+                },
+                "jsLib" : "",
+                "variableComment" : "",
+                "bookSourceUrl" : "http:\/\/www.xs55.org",
+                "ruleBookInfo" : {
+                  "kind" : "#info@.visible-xs.2@text##状态：",
+                  "coverUrl" : "#fmimg@img@data-original",
+                  "author" : "#info@p.0@text",
+                  "wordCount" : "#info@.visible-xs.1@text##字数：",
+                  "lastChapter" : "class.lastchapter visible-xs@a@text",
+                  "intro" : "&nbsp;\n👁️ 点击：{{@@#info@.visible-xs.0@text##点击：}}\n🕑 更新：{{@@dt.0@textNodes##最新章节（|）}}\n✏️ 最新：{{@@class.lastchapter visible-xs@a@text}}\n📜 简介：{{@@#intro@text##《.*》是.*}}",
+                  "name" : "#info@h1@text",
+                  "tocUrl" : "text.章节目录@href"
+                },
+                "respondTime" : 416,
+                "enabled" : true,
+                "searchUrl" : "{{url=source.getKey();\ncookie.removeCookie(url)\njava.ajax(url).match(\/search.*action=\"(.+?)\"\/)[1]}}?searchkey={{key}}",
+                "bookSourceComment" : "",
+                "exploreUrl" : "[\n{\"title\":\"玄幻\",\"url\":\"\/html\/xuanhuan\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"武侠\",\"url\":\"\/html\/wuxia\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"都市\",\"url\":\"\/html\/dushi\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"网游\",\"url\":\"\/html\/wangyou\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"穿越\",\"url\":\"\/html\/chuanyue\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"科幻\",\"url\":\"\/html\/kehuan\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"悬疑\",\"url\":\"\/html\/xuanyi\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"其他\",\"url\":\"\/html\/qita\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n{\"title\":\"全本\",\"url\":\"\/quanben\/html\/{{page}}\/\",\"style\":{\"layout_flexBasisPercent\":0.25,\"layout_flexGrow\":1}},\n]",
+                "lastUpdateTime" : 1727752667915,
+                "bookSourceName" : "无限小说🚩",
+                "customOrder" : 0,
+                "loginUi" : "",
+                "ruleContent" : {
+                  "title" : "",
+                  "sourceRegex" : "",
+                  "webJs" : "",
+                  "content" : "#booktxt@html",
+                  "imageStyle" : "",
+                  "imageDecode" : "",
+                  "payAction" : "",
+                  "nextContentUrl" : "text.下一页@href"
+                },
+                "bookSourceGroup" : "666",
+                "loginCheckJs" : "",
+                "ruleExplore" : {
+                  "bookList" : "class.l@ul@li",
+                  "bookUrl" : ".s2@a@href",
+                  "kind" : ".s1@text&&.s5@text",
+                  "name" : ".s2@a@text",
+                  "lastChapter" : ".s3@a@text",
+                  "author" : ".s4@text"
+                },
+                "concurrentRate" : "",
+                "enabledExplore" : true,
+                "header" : ""
+              },
+                  {
+                    "bookSourceName" : "天域小说网",
+                    "exploreUrl" : "[{\"title\":\"全部小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/0\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0.25}},{\"title\":\"玄幻小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/1\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0.25}},{\"title\":\"修真小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/2\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0.25}},{\"title\":\"都市小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/3\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0.25}},{\"title\":\"穿越小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/4\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0.25}},{\"title\":\"网游小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/5\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0.25}},{\"title\":\"科幻小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/6\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0,\"layout_flexBasisPercent\":0.29}},{\"title\":\"其他小说\",\"url\":\"https:\/\/m.tycqzw.la\/xclass\/7\/{{page}}.html\",\"style\":{\"layout_flexGrow\":0,\"layout_flexBasisPercent\":0.29}}]",
+                    "jsLib" : "",
+                    "enabledExplore" : true,
+                    "enabledCookieJar" : false,
+                    "customOrder" : 1,
+                    "ruleToc" : {
+                      "chapterName" : "text",
+                      "chapterUrl" : "href",
+                      "chapterList" : "id.list@tag.dd@tag.a"
+                    },
+                    "ruleExplore" : {
+                      "bookList" : "class.hot_sale",
+                      "name" : "class.title@text",
+                      "coverUrl" : "img@data-original",
+                      "author" : "class.author@text##作者：",
+                      "bookUrl" : "tag.a.0@href@js:\nr=result.match(\/_(\\d+)\/)\nid=r[1]\nvar iid = parseInt(id\/1000);\n'https:\/\/www.tycqzw.la\/'+iid+'_'+id+'\/'",
+                      "intro" : "class.review@text##简介："
+                    },
+                    "key" : "https:\/\/www.tycqzw.la",
+                    "ruleContent" : {
+                      "sourceRegex" : "",
+                      "webJs" : "",
+                      "title" : "",
+                      "imageDecode" : "",
+                      "payAction" : "",
+                      "content" : "id.content@html##推荐.*新书.*|手机用户.*阅读体验。",
+                      "imageStyle" : ""
+                    },
+                    "weight" : -5,
+                    "loginUrl" : "",
+                    "concurrentRate" : "",
+                    "bookSourceComment" : "",
+                    "bookSourceUrl" : "https:\/\/www.tycqzw.la",
+                    "ruleSearch" : {
+                      "name" : "class.even.0@tag.a.0@text",
+                      "author" : "class.even.1@text",
+                      "bookList" : "class.grid@tag.tr!0",
+                      "bookUrl" : "class.even.0@tag.a.0@href",
+                      "coverUrl" : "class.even.0@tag.a.0@href<js>\nvar id = result.match(\/(\\d+)\\\/?$\/)[1];\nvar iid = parseInt(id\/1000);\n'https:\/\/www.tycqzw.la\/files\/article\/image\/'+iid+'\/'+id+'\/'+id+'s.jpg';\n<\/js>",
+                      "lastChapter" : "class.odd.0@tag.a.0@text##免费章节 |正文卷 |正文 |VIP章节 "
+                    },
+                    "header" : "",
+                    "errorMessage" : "成功",
+                    "ruleBookInfo" : {
+                      "lastChapter" : "id.list@tag.dd.0@a@text##免费章节 |正文卷 |正文 |VIP章节 ",
+                      "author" : "id.info@tag.p.0@text##作\\s*者：",
+                      "intro" : "id.intro@text",
+                      "coverUrl" : "id.fmimg@tag.img@src",
+                      "name" : "id.info@tag.h1.0@text",
+                      "kind" : "[property=og:novel:update_time]@content&&\n[property=og:novel:category]@content&&\n[property=og:novel:status]@content"
+                    },
+                    "loginCheckJs" : "",
+                    "searchUrl" : "\/search.php?searchkey={{key}}",
+                    "enabled" : true,
+                    "loginUi" : "",
+                    "bookSourceGroup" : "🍑书源",
+                    "respondTime" : 807,
+                    "lastUpdateTime" : 1687170210557,
+                    "variableComment" : "",
+                    "bookUrlPattern" : "https:\/\/www.tycqzw.la\/\\d+_\\d+\/",
+                    "bookSourceType" : 0
+                  },
+                      {
+                        "lastUpdateTime" : 0,
+                        "concurrentRate" : "",
+                        "errorMessage" : "搜索结果为空",
+                        "bookSourceUrl" : "https:\/\/www.luocs.cn",
+                        "bookUrlPattern" : "",
+                        "variableComment" : "",
+                        "ruleExplore" : {
+
+                        },
+                        "loginUrl" : "",
+                        "weight" : -1,
+                        "key" : "https:\/\/www.luocs.cn",
+                        "enabledCookieJar" : true,
+                        "ruleContent" : {
+                          "sourceRegex" : "",
+                          "payAction" : "",
+                          "content" : "id.book_text@textNodes##记住本站网址(.*|\\n)本站",
+                          "imageDecode" : "",
+                          "imageStyle" : "",
+                          "webJs" : "",
+                          "title" : ""
+                        },
+                        "enabledExplore" : true,
+                        "respondTime" : 12,
+                        "bookSourceComment" : "",
+                        "header" : "",
+                        "bookSourceName" : "♠ 落尘小说",
+                        "ruleBookInfo" : {
+                          "intro" : "id.intro@tag.p.0@text",
+                          "kind" : "class.info@tag.p.0@text&&\nclass.info@tag.p.1@text&&\nclass.info@tag.p.2@text##所属类型：|更新时间：|连载完成：",
+                          "init" : "class.content",
+                          "name" : "class.info@h1@text",
+                          "lastChapter" : "class.info@tag.span@tag.a@text",
+                          "author" : "class.info@h3@tag.a@text",
+                          "coverUrl" : "class.img@img@src"
+                        },
+                        "enabled" : true,
+                        "exploreUrl" : "",
+                        "ruleSearch" : {
+                          "bookList" : "class.grid@tr!0",
+                          "kind" : "tag.td.4@text&&\ntag.td.5@text",
+                          "name" : "tag.td.0@tag.a@text",
+                          "coverUrl" : "tag.td.0@tag.a@href<js>\nvar id = result.match(\/(\\d+)\\\/?$\/)[1];\nvar iid = parseInt(id\/1000);\n'https:\/\/www.luocs.cn\/files\/article\/image\/'+iid+'\/'+id+'\/'+id+'s.jpg';\n<\/js>",
+                          "bookUrl" : "tag.td.0@tag.a@href",
+                          "wordCount" : "tag.td.3@text",
+                          "author" : "tag.td.2@text",
+                          "lastChapter" : "tag.td.1@tag.a@text"
+                        },
+                        "bookSourceGroup" : "🍑书源",
+                        "loginCheckJs" : "",
+                        "customOrder" : 66,
+                        "bookSourceType" : 0,
+                        "loginUi" : "",
+                        "jsLib" : "",
+                        "searchUrl" : "https:\/\/www.luocs.cn\/modules\/article\/search.php?searchtype=articlename&searchkey={{key}}&action=login&submit=%26%23160%3B%CB%D1%26%23160%3B%26%23160%3B%CB%F7%26%23160%3B&page={{page}},{\n  \"charset\": \"gbk\"\n}",
+                        "ruleToc" : {
+                          "chapterUrl" : "tag.a@href",
+                          "chapterName" : "tag.a@text",
+                          "chapterList" : "class.article_texttitleb@li"
+                        }
+                      },
+                          {
+                            "respondTime" : 2045,
+                            "ruleSearch" : {
+                              "coverUrl" : "img@src",
+                              "intro" : "class.novel-desc@text",
+                              "bookUrl" : "class.novel-link@href",
+                              "name" : "class.novel-title@text",
+                              "author" : "class.novel-author@text",
+                              "bookList" : "class.container@a"
+                            },
+                            "enabledCookieJar" : true,
+                            "enabledExplore" : true,
+                            "bookSourceUrl" : "https:\/\/m.7dnovel.com##",
+                            "bookSourceType" : 0,
+                            "bookUrlPattern" : "https:\/\/m.7dnovel.com\/book\/\\d+\/",
+                            "ruleExplore" : {
+                              "name" : "#title@text||.book-title@text",
+                              "bookUrl" : "a.0@href",
+                              "coverUrl" : "img@src",
+                              "intro" : "#summary@text||.book-summary@text",
+                              "author" : "#author@text||.book-author@text",
+                              "bookList" : ".hot-item||.book-item"
+                            },
+                            "loginUi" : "",
+                            "loginUrl" : "",
+                            "customOrder" : 42,
+                            "ruleBookInfo" : {
+                              "kind" : "#type@span.0:1@text##.*：",
+                              "author" : "#author@text",
+                              "name" : "#title@text",
+                              "lastChapter" : "{{@@#newchapter@text##.*：}}\n{{@@#time@text##.*：}}",
+                              "coverUrl" : "img.2@src@js:'https:\/\/m.7dnovel.com'+result",
+                              "intro" : "#summary@text",
+                              "tocUrl" : "{{$.}}##(\/\\d+)##\/book$1\/chapter-all.html###"
+                            },
+                            "exploreUrl" : "@js: \nvar result = [];\njava.toast(\"🔥正在刷新列表,请稍等！\");\nvar push = (title, url, size) => result.push({\n  \"title\": title,\n  \"url\": url,\n  \"style\": {\n    \"layout_flexGrow\": 1,\n    \"layout_flexBasisPercent\": size\n  }\n});\n\nvar fl = java.ajax(\"https:\/\/m.7dnovel.com\/xuanhuan.html\");\n\nif (fl) {\n  \n  a = org.jsoup.Jsoup.parse(fl).select(\"nav a\")\npush(\"🔥分类小说🔥\",null,1)\npush(\"首页\",`https:\/\/m.7dnovel.com\/`,0.33);\npush(\"排行\",`https:\/\/m.7dnovel.com\/rankings.html`,0.33); \npush(\"完本\",`https:\/\/m.7dnovel.com\/wanben.html`,0.33);\n\n    for(var i=0;i<a.length;i++){\n     title=a[i].text()\n     url=a[i].attr(\"href\")\n     size=0.33;   \n     title = String(title).replace(\/\\s\/g, \"\");\n     url=baseUrl+String(url).replace(\/\\d+\\\/$\/,\"\");\n     \n     push(title,url,size)\n    };\n} else {\n  \n  java.toast(\"🤔列表刷新失败！！！\");\n}\nJSON.stringify(result);",
+                            "enabled" : false,
+                            "key" : "https:\/\/m.7dnovel.com",
+                            "lastUpdateTime" : 1745491152442,
+                            "bookSourceGroup" : "小说",
+                            "concurrentRate" : "",
+                            "header" : "",
+                            "searchUrl" : "https:\/\/m.7dnovel.com\/search-result.php,{\n  \"body\": \"keywords={{key}}\",\n  \"method\": \"POST\"\n}",
+                            "variableComment" : "",
+                            "loginCheckJs" : "",
+                            "ruleToc" : {
+                              "chapterList" : "#myList@class.chapter-item@a",
+                              "chapterUrl" : "href@js:'https:\/\/m.7dnovel.com'+result",
+                              "chapterName" : "text"
+                            },
+                            "bookSourceComment" : "新修复版",
+                            "jsLib" : "",
+                            "bookSourceName" : "趣读小说-修复版本",
+                            "weight" : 0,
+                            "errorMessage" : "获取目录为空",
+                            "ruleContent" : {
+                              "imageDecode" : "",
+                              "sourceRegex" : "",
+                              "content" : "id.chapter-content@html",
+                              "nextContentUrl" : "#chapter-link@a.2@href",
+                              "title" : "",
+                              "payAction" : "",
+                              "replaceRegex" : "##\\（未完待续\\）|↑回顶部.*|首页|喜欢.*{{book.name}}.*",
+                              "webJs" : "",
+                              "imageStyle" : ""
+                            }
+                          }
+                        
+                    
+                
+            
+        
     
   ]
