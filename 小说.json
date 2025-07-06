@@ -719,7 +719,7 @@
     "loginCheckJs" : "",
     "bookSourceComment" : "\/\/By情无羁25.04.26",
     "bookUrlPattern" : "",
-    "customOrder" : 29,
+    "customOrder" : 10029,
     "weight" : 0,
     "key" : "https:\/\/www.zhenhunxiaoshuo.com\/chaxun.html",
     "bookSourceName" : "镇魂小说网（搜作者）",
@@ -753,7 +753,7 @@
     "loginUi" : ""
   },
   {
-    "customOrder" : 30,
+    "customOrder" : 10030,
     "ruleSearch" : {
       "intro" : ".x-book__info--chapter@text||p.-1@text",
       "name" : "p.0@text",
@@ -1341,7 +1341,7 @@
     "respondTime" : 180000,
     
     "searchUrl" : "{{url=source.getKey();\ncookie.removeCookie(url);\njava.ajax(url).match(\/action=\"(.+?)\"\/)[1]}}?keyWord={{key}}",
-    "customOrder" : 52,
+    "customOrder" : 10052,
     "ruleSearch" : {
       "bookUrl" : ".s2 a@href",
       "coverUrl" : ".s2 a@href##.*\/(\\d+)(\\d{3})\/##http:\/\/www.chensiwx.com\/files\/article\/image\/$1\/$1$2\/$1$2s.jpg",
