@@ -1,66 +1,5 @@
 [
-  {
-    "jsLib" : "",
-    "loginUi" : "",
-    "loginUrl" : "",
-    "ruleToc" : {
-      "chapterList" : "#pages@a.0",
-      "chapterName" : "text##.*##全本###",
-      "chapterUrl" : "href"
-    },
-    "customOrder" : 2,
-    "bookSourceUrl" : "https:\/\/www.acgotang.com",
-    "bookSourceName" : "🎨ACG糖漫画",
-    
-    "key" : "https:\/\/www.acgotang.com",
-    "exploreUrl" : "[{\"title\":\"日本漫画\",\"url\":\"\/manga\/index-{{page}}.html\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},{\"title\":\"3D漫画\",\"url\":\"\/3d\/index-{{page}}.html\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},{\"title\":\"欧美漫画\",\"url\":\"\/comics\/index-{{page}}.html\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},{\"title\":\"韩国漫画\",\"url\":\"\/hanman\/index-{{page}}.html\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},{\"title\":\"全彩漫画\",\"url\":\"\/tags\/full-color-{{page}}.html\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}}]",
-    "errorMessage" : "成功",
-    "concurrentRate" : "600",
-    "bookSourceGroup" : "🖼️漫画",
-    "bookUrlPattern" : "",
-    "ruleExplore" : {
-      "kind" : "热度:{{@@.view@text}}\n{{@@.time@text}}",
-      "bookUrl" : "a.0@href",
-      "bookList" : ".con-list li",
-      "name" : "a.0@text##\\[\\]",
-      "coverUrl" : "img@src"
-    },
-    "header" : "",
-    "enabled" : true,
-    "enabledExplore" : true,
-    "loginCheckJs" : "",
-    "variableComment" : "",
-    "ruleContent" : {
-      "sourceRegex" : "",
-      "content" : "<js>\nif (result.match(\/<img src=\".*\\-\\d+.jpg\/)){\nlet pic=java.getString('.manga-picture@img@src')\n\/\/java.log(pic)\npic=String(pic).replace(\/(.*)\\-\\d+.jpg\/,'$1')\npages=java.getString('#pages@a.-2@text')\nif (pages>30){\n\tjava.toast('\\n'+'正文页数较多，请耐心等候')\n\t}\npics=''\nfor (i=0;i<pages;i++){\n\tpics+='<img src=\"'+pic+'-'+i+'.jpg'+'\">'\n\t}\n}\nelse{let content=`{{@@.main-pic@html||.manga-picture@html}}`\n\tjava.log(content)\n\t}\n<\/js>",
-      "imageStyle" : "FULL",
-      "imageDecode" : "",
-      "payAction" : "",
-      "title" : "",
-      "nextContentUrl" : "<js>\nif (result.match(\/<img src=\".*?\\-\\d+.jpg\/)){\n\tresult=null}\nelse if(result.match(\/main-pic|manga-picture\/)){\npages=java.getString('#pages@a.-2@text')\nif (pages>30){\n\tjava.toast('\\n'+'正文页数较多，请耐心等候')\n\t}\nmanga=String(baseUrl).replace(\/(.*?)\\.html\/,'$1')\nlist=[]\nfor (i=2;i<=pages;i++){\n    list.push(manga+'-'+i+'.html')\n  \t}\nlist;}\nelse {\n\tlet next=`{{@@#pages@a.-1@href||text.下一页@href}}`\n\tjava.log(next)\n\t}\n<\/js>",
-      "webJs" : ""
-    },
-    "searchUrl" : "\/q\/{{key}}-{{page}}.html",
-    "respondTime" : 316,
-    "weight" : 0,
-    "bookSourceComment" : "\/\/发布页：https:\/\/kmh123.xyz\/",
-    "enabledCookieJar" : true,
-    "ruleSearch" : {
-      "kind" : "阅读量:{{@@.view@text}}\n{{@@.time@text}}",
-      "bookList" : ".con-list li",
-      "coverUrl" : "img@src",
-      "name" : "a.1@text##\\[\\]",
-      "checkKeyWord" : "秘密教学",
-      "bookUrl" : "a.0@href"
-    },
-    "ruleBookInfo" : {
-      "kind" : "{{@@.lang_cat@text}}\n页数:{{@@#pages@a.-2@text}}",
-      "author" : "text.作者@a@text",
-      "intro" : ".title@text"
-    },
-    "lastUpdateTime" : 1747223526880,
-    "bookSourceType" : 0
-  },
+ 
   {
     "enabled" : true,
     "jsLib" : "",
@@ -117,65 +56,7 @@
     "bookSourceComment" : "\/\/5.6@ys4568\n\/\/有APP",
     "header" : ""
   },
-  {
-    "searchUrl" : "@js:\n    let url=URL()+\"\/e\/search\/index.php,\"+JSON.stringify({\n    \"method\":\"POST\",\n    \"body\":\"show=title&keyboard=\"+key\n    });\n    let surl=String(java.connect(url).raw().request().url())\n    surl;",
-    "key" : "https:\/\/dmmtu.com",
-    "ruleToc" : {
-      "chapterUrl" : "href",
-      "chapterName" : "text",
-      "chapterList" : ".bookAll-item-list.-1@li@a"
-    },
-    "loginCheckJs" : "",
-    "jsLib" : "var Url = [\n  \"https:\/\/dmmtu.com\",\n  \"https:\/\/dmmpic.com\",\n  \"https:\/\/dymmt.com\",\n  \"https:\/\/kkmnt.com\",\n  \"https:\/\/mmxzt.com\"\n]\n   \nfunction URL() {\t\n\t let v = String(this.source.getVariable()).split(\",\");\n   let x = String(v[0]);\n  return Url[x]\n}",
-    "exploreUrl" : "[{\"title\":\"更新\",\"url\":\"{{URL()}}\/update\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"完结\",\"url\":\"{{URL()}}\/finish\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"排行\",\"url\":\"{{URL()}}\/ranking\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"韩漫\",\"url\":\"{{URL()}}\/hanman\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"日漫\",\"url\":\"{{URL()}}\/riman\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"3D\",\"url\":\"{{URL()}}\/3d\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"同人誌\",\"url\":\"{{URL()}}\/tongren\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"单行本\",\"url\":\"{{URL()}}\/danben\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"短篇\",\"url\":\"{{URL()}}\/short\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},{\"title\":\"其他\",\"url\":\"{{URL()}}\/qita\/<,index_{{page}}.html>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}}]",
-    "loginUi" : "[ { \"name\":\"当前接口\",\n     \"type\":\"button\",\n     \"action\":\"A()\",\n     \"style\":{\n            \"layout_flexGrow\": 1,\n            \"layout_flexBasisPercent\": 1\n     }\n  \t},\n  \t{ \"name\":\"接口一\",\n     \"type\":\"button\",\n     \"action\":\"B(0)\",\n     \"style\":{\n            \"layout_flexGrow\": 1,\n            \"layout_flexBasisPercent\": 0.25\n     }\n  \t},\n  \t{ \"name\":\"接口二\",\n     \"type\":\"button\",\n     \"action\":\"B(1)\",\n     \"style\":{\n            \"layout_flexGrow\": 1,\n            \"layout_flexBasisPercent\": 0.25\n     }\n  \t},\n  \t{ \"name\":\"接口三\",\n     \"type\":\"button\",\n     \"action\":\"B(2)\",\n     \"style\":{\n            \"layout_flexGrow\": 1,\n            \"layout_flexBasisPercent\": 0.25\n     }\n  \t},\n  \t{ \"name\":\"接口四\",\n     \"type\":\"button\",\n     \"action\":\"B(3)\",\n     \"style\":{\n            \"layout_flexGrow\": 1,\n            \"layout_flexBasisPercent\": 0.25\n     }\n  \t},\n  \t{ \"name\":\"接口五\",\n     \"type\":\"button\",\n     \"action\":\"B(4)\",\n     \"style\":{\n            \"layout_flexGrow\": 1,\n            \"layout_flexBasisPercent\": 0.25\n     }\n  \t}\n]",
-    "ruleSearch" : {
-      "checkKeyWord" : "姐姐",
-      "lastChapter" : ".description@a@text",
-      "bookList" : ".mipui-xs-item-list",
-      "coverUrl" : "mip-img@src||img@src",
-      "kind" : ".pull-right@text",
-      "name" : "h4@text",
-      "author" : ".info@a@text",
-      "bookUrl" : "a.0@href"
-    },
-    "header" : "",
-    "ruleBookInfo" : {
-      "kind" : "text.分类@span@text",
-      "intro" : "h1@text"
-    },
-    "errorMessage" : "成功",
-    "respondTime" : 18000000,
-    "ruleContent" : {
-      "content" : ".comic_img@html",
-      "nextContentUrl" : "text.下一页@href",
-      "webJs" : "",
-      "imageDecode" : "",
-      "payAction" : "",
-      "title" : "",
-      "sourceRegex" : "",
-      "imageStyle" : ""
-    },
-    "ruleExplore" : {
-
-    },
-    "bookUrlPattern" : "",
-    "enabledCookieJar" : true,
-    "customOrder" : 6,
-    "loginUrl" : "A = () =>{\n\t let v = String(source.getVariable()).split(\",\");\n    x=v[0];\n\t  if(x == 0) {\n\t  \t  java.toast('\\n'+URL())\n\t  \t}\n\t  \tif(x == 1) {\n\t  \t  java.toast('\\n'+URL())\n\t  \t}\n\t  \tif(x == 2) {\n\t  \t  java.toast('\\n'+URL())\n\t  \t}\n\t  \tif(x == 3) {\n\t  \t  java.toast('\\n'+URL())\n\t  \t}\n\t  \tif(x == 4) {\n\t  \t  java.toast('\\n'+URL())\n\t  \t}\n}\n\nB = (x) =>{\n\tlet v = String(source.getVariable()).split(\",\");\n\t v[0]=x;\n\tsource.setVariable(v.join(\",\"));\n\t  if(x === 0){\n\t   \tjava.toast('\\n'+'成功设置 '+URL());\n\t  \t}\n\t  \tif(x === 1){\n\t   \tjava.toast('\\n'+'成功设置 '+URL());\n\t  \t}\n\t  \tif(x === 2){\n\t   \tjava.toast('\\n'+'成功设置 '+URL());\n\t  \t}\n\t  \tif(x === 3){\n\t   \tjava.toast('\\n'+'成功设置 '+URL());\n\t  \t}\n\t  \tif(x === 4){\n\t   \tjava.toast('\\n'+'成功设置 '+URL());\n\t  \t}\n}",
-    "enabled" : true,
-    "bookSourceName" : "🎨第一漫画网",
-    "lastUpdateTime" : 1747222746588,
-    "bookSourceComment" : "\/\/登录代码抄的论坛大佬\n\/\/4.24@ys4568",
-    "bookSourceGroup" : "🖼️漫画",
-    "concurrentRate" : "",
-    "variableComment" : "",
-    "bookSourceType" : 0,
-    "enabledExplore" : true,
-    
-    "bookSourceUrl" : "https:\/\/dmmtu.com",
-    "weight" : 0
-  },
+  
   {
     "bookSourceType" : 2,
     "respondTime" : 557,
@@ -295,76 +176,7 @@
     "enabled" : true,
     "key" : "https:\/\/www.manhuazhan.com"
   },
-  {
-    "bookSourceGroup" : "🖼️漫画",
-    "enabledCookieJar" : false,
-    "ruleToc" : {
-      "chapterList" : "#detail-list-select@a",
-      "chapterUrl" : "href",
-      "chapterName" : "text"
-    },
-    "exploreUrl" : "@js:\nsort=[];\npush=(title,url,type1,type2)=>sort.push({\n\t\ttitle: title,\n\t\turl: url,\n\t\tstyle: {\n\t\t\t\tlayout_flexGrow: type1,\n\t\t\t\tlayout_flexBasisPercent: type2\n\t\t\t}\n\t});\npush(\"最近🌊更新\",`\/getUpdate?page={{15*(page-1)}}`,1,1);\npush(\"一般向\",`\/booklist?page={{page}}&gender=2`,1,1);\npush(\"BL向\",`\/booklist?page={{page}}&gender=0`,1,1);\npush(\"禁漫\",`\/booklist?page={{page}}&gender=1`,1,1);\nnrList=[\"韩国\",\"日漫\",\"国漫\",\"台漫\",\"其他\"]\nnrList.map((title,index)=>{\nurl=`getBooks?page={{page}}&area=${index+1}&sort=-1`;\npush(title,url,1,0.25);\n});\npush(\"连载中\",`\/booklist?page={{page}}&end=2`,1,1)\npush(\"完结\",`\/booklist?page={{page}}&end=1`,1,1)\npush(\"其他🌊标签\",null,1,1)\n\tarList=[\"3D\",\"19R\",\"韩漫\",\"日漫\",\"恋爱\",\"都市\",\"巨乳\",\"校园\",\"搞笑\",\"母子\",\"少女\",\"热血\",\"玄幻\",\"纯爱\",\"宅系\",\"年下\",\"国漫\",\"色气受\",\"穿越\",\"甜文\",\"腹黑攻\",\"古风\",\"奇幻\",\"大尺度\",\"勾引\",\"剧情\",\"其他\",\"悬疑\",\"非现代\",\"冒险\",\"性感\",\"3D\",\"多人\",\"15R\",\"生活\",\"戏剧\",\"日常\",\"职场\",\"后宫\",\"美人\",\"ABO\",\"调教\",\"动作\",\"傲娇受\",\"青梅竹马\",\"忠犬攻\",\"小说改编\",\"少男\",\"正妹\",\"重生\",\"总裁\",\"伦理\",\"壮受\",\"兽耳\",\"可爱受\",\"黑道\",\"治愈\",\"乱伦\",\"浪漫\",\"娱乐圈\",\"淫乱\",\"连载\",\"SM\/BDSM\",\"爆笑\",\"改编\",\"黑皮\",\"大女主\",\"重逢\",\"年龄差\",\"兽人\",\"魔幻\",\"战斗\",\"虐文\",\"体型差\",\"宫廷\",\"霸总\",\"恐怖\",\"制服\",\"透视\",\"少年\",\"人妻\",\"女大学生\",\"巨屌\",\"同居\",\"男孕\",\"偷情\",\"多CP\",\"SM\",\"修真\",\"惊悚\",\"淫荡\",\"出版\",\"唯美\",\"办公室\",\"科幻\",\"肉欲\",\"演艺圈\",\"群交\",\"女学生\",\"女装\",\"大叔\",\"复仇\",\"魔法\",\"逆袭\",\"掰弯\",\"戏剧\",\"三角关系\",\"吸血鬼\",\"有夫之妇\",\"诱惑\",\"性爱\",\"爱情\",\"武侠\",\"女王受\",\"NTR\",\"呆萌受\",\"温柔攻\",\"真人\",\"架空\",\"健气受\",\"灵异\",\"校服\",\"短篇合集\",\"出轨\",\"强迫\",\"萝莉\",\"年上\",\"师生\",\"全彩\",\"虐心\",\"过膝袜\",\"推理\",\"骨科\/伪骨科\",\"知音漫客\",\"超能力\",\"霸道攻\",\"系统\",\"高潮\",\"不伦\",\"漫客栈\",\"人外\",\"青春\",\"黑白\",\"高甜\",\"励志\",\"修仙\",\"长条\",\"双向暗恋\",\"傲娇攻\",\"脑洞\",\"病娇攻\",\"契约关系\",\"萌系\",\"玩具\",\"主仆关系\",\"口交\",\"装逼\",\"血腥\",\"鬼怪\",\"囚禁\",\"肛交\",\"丧尸\",\"初恋\",\"剧情向\",\"性欲\",\"橘味\",\"继母\",\"少妇\"]\n\tarList.map((tag)=>{\n\t\turl=`\/booklist?tag=${tag}&end=&gender=-1&has_full=-1&area=&sort=-1&level=-1&page={{page}}`;\npush(tag,url,1,0.25);\n});\n\/\/java.log(JSON.stringify(sort))\nJSON.stringify(sort)",
-    "searchUrl" : "\/search?keyword={{key}}&page={{page}}",
-    "key" : "https:\/\/manwate.cc\/?img_host=2",
-    "customOrder" : 61,
-    "bookSourceType" : 2,
-    "bookSourceComment" : "\/\/2025.4.28  by.◎辞晨◎",
-    "enabled" : true,
-    "respondTime" : 1435,
-    "variableComment" : "",
-    "loginUi" : "",
-    "ruleSearch" : {
-      "bookUrl" : ".book-list-info@a.0@href",
-      "name" : ".book-list-info-title@text",
-      "checkKeyWord" : "我的灵异女友",
-      "intro" : ".book-list-info-desc@text",
-      "author" : "span.1@text##.*作者：",
-      "coverUrl" : "img@data-original",
-      "kind" : ".book-list-info-bottom@span.1@text",
-      "lastChapter" : "span.2@text",
-      "bookList" : ".book-list@li"
-    },
-    "loginUrl" : "",
-    "weight" : 0,
-    "bookUrlPattern" : "",
-    "bookSourceName" : "蛙漫◎辞晨◎",
-    "loginCheckJs" : "",
-    "header" : "@js:\nJSON.stringify({\n  'User-Agent': \"Mozilla\/5.0 (Linux; Android 15; V2304A Build\/AP3A.240905.015.A2; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/126.0.6478.71 Mobile Safari\/537.36\",\n  'sec-ch-ua-platform': \"\\\"Android\\\"\",\n  'origin': baseUrl,\n  'x-requested-with': \"cn.mujiankeji.mbrowser\",\n  'referer': baseUrl,\n  'accept-language': \"zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7\"\n})",
-    "bookSourceUrl" : "https:\/\/manwate.cc\/?img_host=2",
-    "ruleBookInfo" : {
-      "author" : ".detail-main-info-author@a.0@text",
-      "lastChapter" : "span.7@text",
-      "coverUrl" : ".detail-main-cover@img@data-original",
-      "intro" : ".detail-desc@text",
-      "name" : "h1@text",
-      "kind" : "{{@@.info-tag-span@text}},{{@@.detail-main-info@p.-1:-2@text##地区：|类别：|作者：|更新状态：}}"
-    },
-    "ruleContent" : {
-      "sourceRegex" : "",
-      "title" : "",
-      "payAction" : "",
-      "imageStyle" : "FULL",
-      "webJs" : "",
-      "imageDecode" : "java.createSymmetricCrypto(\"AES\/CBC\/PKCS5Padding\", \"my2ecret782ecret\",\"my2ecret782ecret\").decrypt(result)",
-      "content" : "img@data-r-src\n<js>\nlet headers = JSON.stringify({\"headers\":{\"Referer\":baseUrl}});\nresult.split('\\n').map(x=>`<img src=\"${x},${headers}\">`).join('\\n');\n<\/js>"
-    },
-    
-    "errorMessage" : "成功",
-    "enabledExplore" : true,
-    "ruleExplore" : {
-      "coverUrl" : "{{$.cover_url||\"\"}}{{@img@src||\"\"}}",
-      "bookList" : "<js>\nif (result.match(\/<html\/)){\n\tresult=java.getElements(\"ul@li\")\n\t}else{\n\tresult=java.getElements(\"$.books\")\n\t}\nresult\n<\/js>",
-      "intro" : "$.summary",
-      "kind" : "$.tags##\\|##,",
-      "bookUrl" : "{{@.manga-list-2-title@a.0@href||\"\"}}{{$.id||\"\"##^(\\S)##\/book\/$1}}",
-      "name" : "{{$.book_name||\"\"}}{{@.manga-list-2-title@a.0@text||\"\"}}",
-      "author" : "$.author_name",
-      "lastChapter" : "$.last_chapter.chapter_name||$.last_chapter"
-    },
-    "jsLib" : "",
-    "concurrentRate" : "",
-    "lastUpdateTime" : 1747206277093
-  },
+ 
   {
     "loginUrl" : "",
     "exploreUrl" : "热血机战::\/rexue\/index_{{page}}.html\n科幻未来::\/kehuan\/index_{{page}}.html\n恐怖惊悚::\/kongbu\/index_{{page}}.html\n推理悬疑::\/xuanyi\/index_{{page}}.html\n滑稽搞笑::\/gaoxiao\/index_{{page}}.html\n恋爱生活::\/love\/index_{{page}}.html\n耽美人生::\/danmei\/index_{{page}}.html\n体育竞技::\/tiyu\/index_{{page}}.html\n纯情少女::\/chunqing\/index_{{page}}.html\n魔法奇幻::\/qihuan\/index_{{page}}.html\n武侠经典::\/wuxia\/index_{{page}}.html",
@@ -425,70 +237,7 @@
     "customOrder" : 85,
     "enabled" : true
   },
-  {
-    "loginUrl" : "",
-    "searchUrl" : "\/index.php\/search?key={{key}}",
-    "exploreUrl" : "[{\"title\":\"🔥———— 全部分类 ————🔥\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"全  部\",\"url\":\"\/category<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"连载中\",\"url\":\"\/category\/finish\/1<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"已完结\",\"url\":\"\/category\/finish\/2<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最新更新\",\"url\":\"\/category\/order\/addtime<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最热漫画\",\"url\":\"\/category\/order\/hits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最高评分\",\"url\":\"\/category\/order\/score<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最多收藏\",\"url\":\"\/category\/order\/shits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"新漫入库\",\"url\":\"\/category\/order\/id<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"今日人气\",\"url\":\"\/category\/order\/rhits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"✨————    韩    漫    ————✨\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"全  部\",\"url\":\"\/category\/list\/2<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"连载中\",\"url\":\"\/category\/finish\/1\/list\/2<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"已完结\",\"url\":\"\/category\/finish\/2\/list\/2<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最新更新\",\"url\":\"\/category\/order\/addtime\/list\/2<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最热漫画\",\"url\":\"\/category\/list\/2\/order\/hits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最高评分\",\"url\":\"\/category\/list\/2\/order\/score<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最多收藏\",\"url\":\"\/category\/list\/2\/order\/shits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"新漫入库\",\"url\":\"\/category\/list\/2\/order\/id<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"今日人气\",\"url\":\"\/category\/list\/2\/order\/rhits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"✨————   出版漫画   ————✨\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"全  部\",\"url\":\"\/category\/list\/4<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"连载中\",\"url\":\"\/category\/finish\/1\/list\/4<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"已完结\",\"url\":\"\/category\/finish\/2\/list\/4<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最新更新\",\"url\":\"\/category\/list\/4\/order\/addtime<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最热漫画\",\"url\":\"\/category\/list\/4\/order\/hits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最高评分\",\"url\":\"\/category\/list\/4\/order\/score<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最多收藏\",\"url\":\"\/category\/list\/4\/order\/shits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"新漫入库\",\"url\":\"\/category\/list\/4\/order\/id<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"今日人气\",\"url\":\"\/category\/list\/4\/order\/rhits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"✨————   3D漫画   ————✨\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"全  部\",\"url\":\"\/category\/list\/1<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"连载中\",\"url\":\"\/category\/finish\/1\/list\/1<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"已完结\",\"url\":\"\/category\/finish\/2\/list\/1<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最新更新\",\"url\":\"\/category\/list\/1\/order\/addtime<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最热漫画\",\"url\":\"\/category\/list\/1\/order\/hits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最高评分\",\"url\":\"\/category\/list\/1\/order\/score<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最多收藏\",\"url\":\"\/category\/list\/1\/order\/shits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"新漫入库\",\"url\":\"\/category\/list\/1\/order\/id<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"今日人气\",\"url\":\"\/category\/list\/1\/order\/rhits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"✨————    单    本    ————✨\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"全  部\",\"url\":\"\/category\/list\/3<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"连载中\",\"url\":\"\/category\/finish\/1\/list\/3<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"已完结\",\"url\":\"\/category\/finish\/2\/list\/3<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最新更新\",\"url\":\"\/category\/list\/3\/order\/addtime<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最热漫画\",\"url\":\"\/category\/list\/3\/order\/hits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最高评分\",\"url\":\"\/category\/list\/3\/order\/score<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最多收藏\",\"url\":\"\/category\/list\/3\/order\/shits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"新漫入库\",\"url\":\"\/category\/list\/3\/order\/id<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"今日人气\",\"url\":\"\/category\/list\/3\/order\/rhits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"✨————   其它类   ————✨\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"全  部\",\"url\":\"\/category\/list\/5<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"连载中\",\"url\":\"\/category\/finish\/1\/list\/5<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"已完结\",\"url\":\"\/category\/finish\/2\/list\/5<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最新更新\",\"url\":\"\/category\/list\/5\/order\/addtime<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最热漫画\",\"url\":\"\/category\/list\/5\/order\/hits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最高评分\",\"url\":\"\/category\/list\/5\/order\/score<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"最多收藏\",\"url\":\"\/category\/list\/5\/order\/shits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"新漫入库\",\"url\":\"\/category\/list\/5\/order\/id<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}},\n{\"title\":\"今日人气\",\"url\":\"\/category\/list\/5\/order\/rhits<,\/page\/{{page}}>\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.25}}]",
-    "ruleToc" : {
-      "chapterName" : "text",
-      "chapterList" : "class.chapter__list-box clearfix@tag.li@tag.a",
-      "chapterUrl" : "href"
-    },
-    "bookSourceType" : 2,
-    "respondTime" : 439,
-    "bookSourceUrl" : "https:\/\/jymh08.cc\/",
-    "bookSourceComment" : "",
-    "header" : "",
-    "ruleExplore" : {
-      "bookList" : "class.cate-comic-list clearfix@class.common-comic-item",
-      "lastChapter" : "class.comic-update@tag.a@text",
-      "intro" : "class.cover@class.comic-feature@text",
-      "bookUrl" : "class.comic__title@tag.a@href",
-      "coverUrl" : "class.cover@tag.img@data-original",
-      "name" : "class.comic__title@tag.a@text"
-    },
-    "weight" : 0,
-    "customOrder" : 94,
-    "lastUpdateTime" : 1744239799615,
-    "concurrentRate" : "",
-    "errorMessage" : "成功",
-    "enabled" : true,
-    "jsLib" : "",
-    "bookSourceName" : "九妖漫画实验版",
-    "key" : "https:\/\/jymh08.cc\/",
-    "variableComment" : "",
-    
-    "enabledCookieJar" : true,
-    "bookSourceGroup" : "🖼️漫画",
-    "loginUi" : "",
-    "bookUrlPattern" : "",
-    "ruleBookInfo" : {
-      "coverUrl" : "class.de-info__cover@tag.img@src",
-      "kind" : "class.comic-status@class.text.0@tag.b@text",
-      "name" : "class.de-info__box@class.comic-title j-comic-title@text",
-      "intro" : "class.comic-intro@class.intro@text",
-      "author" : "class.comic-author@class.name@tag.a@text"
-    },
-    "enabledExplore" : true,
-    "loginCheckJs" : "",
-    "ruleSearch" : {
-      "lastChapter" : "class.comic-update@tag.a@text",
-      "name" : "class.comic__title@tag.a@text",
-      "bookUrl" : "class.comic__title@tag.a@href",
-      "intro" : "class.cover@tag.p@text",
-      "bookList" : "class.cate-comic-list clearfix@class.common-comic-item",
-      "coverUrl" : "class.cover@tag.img@data-original"
-    },
-    "ruleContent" : {
-      "title" : "",
-      "imageDecode" : "",
-      "sourceRegex" : "",
-      "imageStyle" : "FULL",
-      "content" : "class.rd-article-wr clearfix@class.rd-article__pic hide@html",
-      "payAction" : "",
-      "webJs" : ""
-    }
-  },
+ 
   {
     "jsLib" : "",
     "exploreUrl" : "[\n  {\n    \"title\": \"国产漫画\",\n    \"url\": \"\/category\/list\/page\/{{page}}\"\n  },\n  {\n    \"title\": \"日本漫画\",\n    \"url\": \"\/category\/list\/2\/page\/{{page}}\"\n  },\n  {\n    \"title\": \"韩国漫画\",\n    \"url\": \"\/category\/list\/3\/page\/{{page}}\"\n  },\n  {\n    \"title\": \"欧美漫画\",\n    \"url\": \"\/category\/list\/4\/page{{page}}\"\n  }\n]",
@@ -852,122 +601,8 @@
     "customOrder" : 587,
     "enabled" : true
   },
-  {
-    "loginUi" : "",
-    "lastUpdateTime" : 1747190463295,
-    "header" : "",
-    "ruleBookInfo" : {
-      "intro" : "class.anime__details__text@p.1@text"
-    },
-    "ruleToc" : {
-      "chapterUrl" : "a@href",
-      "chapterList" : "class.anime__details__episodes@a[-1:0]",
-      "chapterName" : "a@text"
-    },
-    "bookUrlPattern" : "",
-    "errorMessage" : "成功",
-    "bookSourceUrl" : "http:\/\/www.kxkmh2.vip",
-    "enabled" : true,
-    "jsLib" : "",
-    "key" : "http:\/\/www.kxkmh2.vip",
-    "bookSourceName" : "🔰 开心看mh",
-    "respondTime" : 680,
-    "loginUrl" : "",
-    "variableComment" : "",
-    "enabledExplore" : true,
-    "enabledCookieJar" : true,
-    "concurrentRate" : "",
-    "exploreUrl" : "[{\"title\":\"———— 全    部 ————\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"最热门·全部\",\"url\":\"\/manga\/library?type=0&complete=1&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=0&complete=2&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=0&complete=3&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最近更新·全部\",\"url\":\"\/manga\/library?type=0&complete=1&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=0&complete=2&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=0&complete=3&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最新上架·全部\",\"url\":\"\/manga\/library?type=0&complete=1&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=0&complete=2&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=0&complete=3&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n\n{\"title\":\"———— 3D及其他 ————\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"最热门·全部\",\"url\":\"\/manga\/library?type=1&complete=1&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=1&complete=2&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=1&complete=3&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最近更新·全部\",\"url\":\"\/manga\/library?type=1&complete=1&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=1&complete=2&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=1&complete=3&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最新上架·全部\",\"url\":\"\/manga\/library?type=1&complete=1&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=1&complete=2&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=1&complete=3&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n\n{\"title\":\"———— 韩    漫 ————\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"最热门·全部\",\"url\":\"\/manga\/library?type=2&complete=1&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=2&complete=2&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=2&complete=3&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最近更新·全部\",\"url\":\"\/manga\/library?type=2&complete=1&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=2&complete=2&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=2&complete=3&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最新上架·全部\",\"url\":\"\/manga\/library?type=2&complete=1&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=2&complete=2&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=2&complete=3&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n\n{\"title\":\"———— 日    漫 ————\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"最热门·全部\",\"url\":\"\/manga\/library?type=3&complete=1&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=3&complete=2&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=3&complete=3&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最近更新·全部\",\"url\":\"\/manga\/library?type=3&complete=1&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=3&complete=2&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=3&complete=3&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最新上架·全部\",\"url\":\"\/manga\/library?type=3&complete=1&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=3&complete=2&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=3&complete=3&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n\n{\"title\":\"———— 真    人 ————\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"最热门·全部\",\"url\":\"\/manga\/library?type=4&complete=1&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=4&complete=2&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=4&complete=3&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最近更新·全部\",\"url\":\"\/manga\/library?type=4&complete=1&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=4&complete=2&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=4&complete=3&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最新上架·全部\",\"url\":\"\/manga\/library?type=4&complete=1&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=4&complete=2&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=4&complete=3&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n\n{\"title\":\"———— 耽美BL ————\",\"url\":\"\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":1}},\n{\"title\":\"最热门·全部\",\"url\":\"\/manga\/library?type=5&complete=1&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=5&complete=2&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=5&complete=3&page={{page}}&orderby=1\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最近更新·全部\",\"url\":\"\/manga\/library?type=5&complete=1&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=5&complete=2&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=5&complete=3&page={{page}}&orderby=2\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"最新上架·全部\",\"url\":\"\/manga\/library?type=5&complete=1&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.4}},\n{\"title\":\"完结\",\"url\":\"\/manga\/library?type=5&complete=2&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}},\n{\"title\":\"连载\",\"url\":\"\/manga\/library?type=5&complete=3&page={{page}}&orderby=3\",\"style\":{\"layout_flexGrow\":1,\"layout_flexBasisPercent\":0.2}}]",
-    "weight" : 0,
-    "loginCheckJs" : "",
-    "ruleContent" : {
-      "imageDecode" : "",
-      "title" : "",
-      "content" : "class.blog__details__content@html",
-      "sourceRegex" : "",
-      "webJs" : "",
-      "imageStyle" : "FULL",
-      "payAction" : ""
-    },
-    "bookSourceType" : 2,
-    "bookSourceGroup" : "🖼️漫画",
-    "ruleExplore" : {
-
-    },
-    "ruleSearch" : {
-      "bookList" : "class.col-lg-2 col-md-3 col-sm-4 col-6",
-      "coverUrl" : "class.product__item__pic set-bg@data-setbg",
-      "name" : "h6@a@text",
-      "bookUrl" : "h6@a@href",
-      "kind" : "class.ep@text"
-    },
-    "customOrder" : 656,
-    "searchUrl" : "\/manga\/search?keyword={{key}}",
-    "bookSourceComment" : "永久发布页：kxkmh.xyz"
-  },
-  {
-    "loginCheckJs" : "",
-    "ruleExplore" : {
-
-    },
-    "bookSourceUrl" : "http:\/\/m.rumanhua1.com\/",
-    "bookUrlPattern" : "https?:\/\/m.rumanhua.com\/\\w+\/",
-    
-    "ruleBookInfo" : {
-      "kind" : "@get:{k}##更新：",
-      "name" : "@get:{n}",
-      "init" : "@put:{n:\"[property$=title]@content\",\na:\"[property$=author]@content\",\nk:\".comic-tags@span@text&&\n.comic-info-detail > p.0@text\",\nl:\"[property~=las?test_chapter_name]@content\",\ni:\".cartoon-introduction@text\",\nc:\"[property$=image]@content\"}",
-      "intro" : "@get:{i}",
-      "coverUrl" : "@get:{c}",
-      "author" : "@get:{a}",
-      "lastChapter" : "@get:{l}"
-    },
-    "ruleContent" : {
-      "title" : "",
-      "content" : "\/\/script[@type=\"text\/javascript\"]\/text()\n<js>\neval(result)\n\n\tvar _0x4a0135=java.getElement('.readerContainer').attr('data-id');\n\tvar _0x3d1d18=['c21raHkyNTg=','c21rZDk1ZnY=','bWQ0OTY5NTI=','Y2Rjc2R3cQ==','dmJmc2EyNTY=','Y2F3ZjE1MWM=','Y2Q1NmN2ZGE=','OGtpaG50OQ==','ZHNvMTV0bG8=','NWtvNnBsaHk='][_0x4a0135];\n\tvar _0x3af5f6=_0x1c72dc(_0x3d1d18);\n\tvar _0x2155fc=_0x1c72dc(__c0rst96);\n\tvar _0x393370=_0x3af5f6.length;\n\tvar _0x1e348e='';\n\tfor(_0x45856e=0;_0x45856e<_0x2155fc.length;_0x45856e++){\n\t\tk=_0x45856e%_0x393370;\n\t\t_0x1e348e+=String.fromCharCode(_0x2155fc.charCodeAt(_0x45856e)^_0x3af5f6.charCodeAt(k));\n\t}\n\tvar _0x2eb701=_0x1c72dc(_0x1e348e);\n\tvar _0x409eb8=JSON.parse(_0x2eb701);\n\tvar _0x542701=_0x409eb8.length;\n\tvar _0x255baf='';\n\tfor(var _0x45856e=0;_0x45856e<_0x542701;_0x45856e++){\n\t\t_0x255baf=_0x255baf+'<img src=\"'+_0x409eb8[_0x45856e]+'\">\\n';\n\t}\n\t_0x255baf\n<\/js>",
-      "webJs" : "",
-      "imageStyle" : "",
-      "sourceRegex" : "",
-      "imageDecode" : "",
-      "payAction" : ""
-    },
-    "jsLib" : "function _0x1c72dc(_0x2ba890){\n\t\tvar _0xf79727='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/=';\n\t\tvar _0xdd54cd,_0x4356aa,_0x3c6736,_0x444c73,_0x5799af,_0x582152,_0x420099,_0xe80067,_0x51d7ca=0,_0x367e8d=0,_0xc87c7='',_0x250acf=[];\n\t\tif(!_0x2ba890){\n\t\t\treturn _0x2ba890;\n\t\t}\n\t\t_0x2ba890+='';\n\t\tdo{\n\t\t\t_0x444c73=_0xf79727.indexOf(_0x2ba890.charAt(_0x51d7ca++));\n\t\t\t_0x5799af=_0xf79727.indexOf(_0x2ba890.charAt(_0x51d7ca++));\n\t\t\t_0x582152=_0xf79727.indexOf(_0x2ba890.charAt(_0x51d7ca++));\n\t\t\t_0x420099=_0xf79727.indexOf(_0x2ba890.charAt(_0x51d7ca++));\n\t\t\t_0xe80067=_0x444c73<<0x12|_0x5799af<<0xc|_0x582152<<0x6|_0x420099;\n\t\t\t_0xdd54cd=_0xe80067>>0x10&0xff;\n\t\t\t_0x4356aa=_0xe80067>>0x8&0xff;\n\t\t\t_0x3c6736=_0xe80067&0xff;\n\t\t\tif(_0x582152==64){\n\t\t\t\t_0x250acf[_0x367e8d++]=String.fromCharCode(_0xdd54cd);\n\t\t\t}else if(_0x420099==64){\n\t\t\t\t_0x250acf[_0x367e8d++]=String.fromCharCode(_0xdd54cd,_0x4356aa);\n\t\t\t}else{\n\t\t\t\t_0x250acf[_0x367e8d++]=String.fromCharCode(_0xdd54cd,_0x4356aa,_0x3c6736);\n\t\t\t}\n\t\t}while(_0x51d7ca<_0x2ba890.length);\n\t\t_0xc87c7=_0x250acf.join('');\n\t\treturn _0xc87c7;\n\t}",
-    "key" : "http:\/\/m.rumanhua1.com\/",
-    "enabledExplore" : true,
-    "respondTime" : 247,
-    "weight" : 0,
-    "bookSourceComment" : "\/\/9.1 by: 游客\n\/\/12.1酷安转义字符解密\nhttps:\/\/m.dumanwu.com\/\nhttps:\/\/m.rumanhua.com\/",
-    "customOrder" : 762,
-    "variableComment" : "",
-    "enabled" : true,
-    "header" : "{\"User-Agent\": \"Mozilla\/5.0 (Linux; Android 9; MIX 2 Build\/PKQ1.190118.001; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/80.0.3987.99 Mobile Safari\/537.36\"}",
-    "loginUi" : "",
-    "bookSourceGroup" : "🖼️漫画",
-    "bookSourceName" : "🌠 如漫画网",
-    "concurrentRate" : "",
-    "bookSourceType" : 2,
-    "searchUrl" : "\/s,{\n  \"body\": \"k={{key}}\",\n  \"headers\": {\n    \"Referer\": \"{{baseUrl}}\/\",\n    \"X-Requested-With\": \"XMLHttpRequest\"\n  },\n  \"method\": \"POST\"\n}",
-    "loginUrl" : "",
-    "lastUpdateTime" : 1745778461468,
-    "ruleToc" : {
-      "chapterName" : "text",
-      "chapterUrl" : "href",
-      "chapterList" : ".chaplist-box li a\n@js:\nvar list = Array.from(result),\nregex = \/(\\w+)\\\/$\/,\nid = baseUrl.match(regex)[1];\nurl = baseUrl.replace(regex, \"morechapter\");\ntry{\n\tp = java.post(url, `id=${id}`, \n\t{Referer: baseUrl}).body();\n\td = JSON.parse(p).data;\ndir = d.map($ => ({\n\ttext: $.chaptername,\n\thref: $.chapterid+\".html\"\n\t}) );\n\t}catch(e){\n\t\tjava.log(e)\n\t\tdir = [];\n\t\t}\nlist.concat(dir).reverse()"
-    },
-    "ruleSearch" : {
-      "bookList" : "$.data[*]",
-      "name" : "$.name",
-      "intro" : "$.intro",
-      "author" : "$.author",
-      "kind" : "0",
-      "bookUrl" : "\/{{$.id}}\/",
-      "coverUrl" : "$.imgurl",
-      "lastChapter" : "$.remarks"
-    },
-    "errorMessage" : "成功",
-    "enabledCookieJar" : false,
-    "exploreUrl" : "@js:\nvar kind = [\"冒险\",\"热血\",\"都市\",\n\"玄幻\",\"悬疑\",\"耽美\",\"恋爱\",\"生活\",\n\"搞笑\",\"穿越\",\"修真\",\"后宫\",\"女主\",\n\"古风\",\"连载\",\"完结\"];\nlet bu = \"\/data\/sort,\"\nbd = {\n  \"body\": \"s=1&p={{page}}\",\n  \"headers\": {\n    \"Referer\": \"{{baseUrl}}\/\",\n    \"X-Requested-With\": \"XMLHttpRequest\"\n  },\n  \"method\": \"POST\"\n};\n\nsort = kind.map((name, i) => { i++\n\tlet url = `s=${i}&p={{page}}`,\n\ttitle = name; bd.body = url; \n\tlink = bu + JSON.stringify(bd);\n\tlist = ({\n    \"title\": title,\n    \"url\": link,\n    \"style\": {\n      \"layout_flexGrow\": 1,\n      \"layout_flexBasisPercent\": 0.25,\n    }\n  });\n\treturn list\n\t});\n\t\nJSON.stringify(sort);"
-  },
+ 
+  
   {
     "bookSourceUrl" : "https:\/\/www.9comic.cn",
     "variableComment" : "",
@@ -1094,74 +729,6 @@
     "ruleExplore" : {
 
     }
-  },
-  {
-    "enabledCookieJar" : false,
-    "variableComment" : "",
-    "jsLib" : "",
-    "exploreUrl" : "",
-    "bookSourceName" : "阿吧漫画",
-    "bookSourceUrl" : "阿吧漫画",
-    "enabledExplore" : true,
-    "enabled" : true,
-    "lastUpdateTime" : 1747127014156,
-    "bookSourceType" : 2,
-    "bookSourceGroup" : "🖼️漫画",
-    "ruleExplore" : {
-
-    },
-    "ruleBookInfo" : {
-      "lastChapter" : "$.latest",
-      "kind" : "$.kind",
-      "intro" : "$.intro",
-      "name" : "$.name",
-      "author" : "$.author",
-      "init" : "<js>\nvar _0x1136bc=function(){var _0x5a8a61=!![];return function(_0x4223e7,_0x5ebee7){var _0x21ce8d=_0x5a8a61?function(){if(_0x5ebee7){var _0x46dc77=_0x5ebee7['\\x61\\x70\\x70\\x6c\\x79'](_0x4223e7,arguments);_0x5ebee7=null;return _0x46dc77;}}:function(){};_0x5a8a61=![];return _0x21ce8d;};}();var _0x35e587=_0x1136bc(this,function(){var _0x328f30=function(){var _0x17aa0f=_0x328f30['\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72']('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x2f\\x22\\x20\\x2b\\x20\\x74\\x68\\x69\\x73\\x20\\x2b\\x20\\x22\\x2f')()['\\x63\\x6f\\x6d\\x70\\x69\\x6c\\x65']('\\x5e\\x28\\x5b\\x5e\\x20\\x5d\\x2b\\x28\\x20\\x2b\\x5b\\x5e\\x20\\x5d\\x2b\\x29\\x2b\\x29\\x2b\\x5b\\x5e\\x20\\x5d\\x7d');return!_0x17aa0f['\\x74\\x65\\x73\\x74'](_0x35e587);};return _0x328f30();});_0x35e587();var _0x4a4354=function(){var _0x2f5d4d=!![];return function(_0x30563d,_0x75a2c0){var _0x5e7c36=_0x2f5d4d?function(){if(_0x75a2c0){var _0x553019=_0x75a2c0['\\x61\\x70\\x70\\x6c\\x79'](_0x30563d,arguments);_0x75a2c0=null;return _0x553019;}}:function(){};_0x2f5d4d=![];return _0x5e7c36;};}();var _0x6cda6=_0x4a4354(this,function(){var _0x5e646a=function(){};var _0x56aac7;try{var _0x4596cd=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x20\\x29'+'\\x29\\x3b');_0x56aac7=_0x4596cd();}catch(_0xf1d20a){_0x56aac7=window;}if(!_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']){_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']=function(_0x1f0f50){var _0x1cb8d5={};_0x1cb8d5['\\x6c\\x6f\\x67']=_0x1f0f50;_0x1cb8d5['\\x77\\x61\\x72\\x6e']=_0x1f0f50;_0x1cb8d5['\\x64\\x65\\x62\\x75\\x67']=_0x1f0f50;_0x1cb8d5['\\x69\\x6e\\x66\\x6f']=_0x1f0f50;_0x1cb8d5['\\x65\\x72\\x72\\x6f\\x72']=_0x1f0f50;_0x1cb8d5['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x1f0f50;_0x1cb8d5['\\x74\\x61\\x62\\x6c\\x65']=_0x1f0f50;_0x1cb8d5['\\x74\\x72\\x61\\x63\\x65']=_0x1f0f50;return _0x1cb8d5;}(_0x5e646a);}else{_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x6c\\x6f\\x67']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x77\\x61\\x72\\x6e']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x64\\x65\\x62\\x75\\x67']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x69\\x6e\\x66\\x6f']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x72\\x72\\x6f\\x72']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x61\\x62\\x6c\\x65']=_0x5e646a;_0x56aac7['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x72\\x61\\x63\\x65']=_0x5e646a;}});_0x6cda6();eval(String(java['\\x62\\x61\\x73\\x65\\x36\\x34\\x44\\x65\\x63\\x6f\\x64\\x65'](source['\\x62\\x6f\\x6f\\x6b\\x53\\x6f\\x75\\x72\\x63\\x65\\x43\\x6f\\x6d\\x6d\\x65\\x6e\\x74'])));var _0x34a3a1=org['\\x6a\\x73\\x6f\\x75\\x70']['\\x4a\\x73\\x6f\\x75\\x70']['\\x70\\x61\\x72\\x73\\x65'](result),_0x100b3=_0x23c2a3=>String(_0x34a3a1['\\x73\\x65\\x6c\\x65\\x63\\x74']('\\x5b\\x70\\x72\\x6f\\x70\\x65\\x72\\x74\\x79\\x3d\\x22\\x6f\\x67\\x3a'+_0x23c2a3+'\\x22\\x5d')['\\x61\\x74\\x74\\x72']('\\x63\\x6f\\x6e\\x74\\x65\\x6e\\x74')),_0x995c34=_0x3e5847=>String(java['\\x67\\x65\\x74\\x45\\x6c\\x65\\x6d\\x65\\x6e\\x74\\x73'](_0x3e5847)['\\x74\\x65\\x78\\x74']()),_0x1140bd=_0x2ab714=>String(_0x34a3a1['\\x73\\x65\\x6c\\x65\\x63\\x74'](_0x2ab714)['\\x61\\x74\\x74\\x72']('\\x73\\x72\\x63'));url=host+baseUrl['\\x6d\\x61\\x74\\x63\\x68'](\/\\\/book.*\/)+'\\x2c\\x7b\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x7b\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x20\\x22'+host+'\\x22\\x7d\\x7d';s=_0x995c34('\\x2e\\x74\\x69\\x70\\x20\\x2e\\x62\\x6c\\x6f\\x63\\x6b\\x20\\x73\\x70\\x61\\x6e')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/[中已]\/g,'\\x2c');l=_0x995c34('\\x2e\\x76\\x69\\x65\\x77\\x2d\\x77\\x69\\x6e\\x2d\\x6c\\x69\\x73\\x74\\x20\\x6c\\x69\\x20\\x61\\x2e\\x2d\\x31');k=_0x995c34('\\x2e\\x74\\x69\\x70\\x20\\x2e\\x62\\x6c\\x6f\\x63\\x6b\\x20\\x61')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/\\s|@\/g,'');t=_0x995c34('\\x2e\\x74\\x69\\x70\\x20\\x2e\\x62\\x6c\\x6f\\x63\\x6b\\x2e\\x32')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/更新时间：\/g,'');count=_0x34a3a1['\\x73\\x65\\x6c\\x65\\x63\\x74']('\\x2e\\x76\\x69\\x65\\x77\\x2d\\x77\\x69\\x6e\\x2d\\x6c\\x69\\x73\\x74\\x20\\x6c\\x69\\x20\\x61')['\\x6c\\x65\\x6e\\x67\\x74\\x68'];var _0x2026e5={};_0x2026e5['\\x6e\\x61\\x6d\\x65']=_0x995c34('\\x68\\x31');_0x2026e5['\\x61\\x75\\x74\\x68\\x6f\\x72']=_0x995c34('\\x2e\\x69\\x6e\\x66\\x6f\\x20\\x2e\\x73\\x75\\x62\\x74\\x69\\x74\\x6c\\x65\\x2e\\x31')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/[,xX&]|[图文][:：]\/g,'\\x2f')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/\\s\/g,'')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/\\\/\\\/\\\/|\\\/\\\/\/g,'\\x2f');_0x2026e5['\\x6b\\x69\\x6e\\x64']=s+'\\x2c'+k+'\\x2c'+t;_0x2026e5['\\x77\\x6f\\x72\\x64']='';_0x2026e5['\\x6c\\x61\\x74\\x65\\x73\\x74']=l+'\\u00b7'+t+'\\u00b7\\x5b'+count+'\\x5d';_0x2026e5['\\x69\\x6e\\x74\\x72\\x6f']='\\x3c\\x62\\x72\\x3e'+_0x995c34('\\x2e\\x63\\x6f\\x6e\\x74\\x65\\x6e\\x74')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/漫画简介：\/g,'')['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/(^|[。！？!?]+[\"”」）】]?)\/g,'\\x24\\x31\\x3c\\x62\\x72\\x3e');_0x2026e5['\\x63\\x6f\\x76\\x65\\x72']=_0x1140bd('\\x2e\\x62\\x61\\x6e\\x6e\\x65\\x72\\x5f\\x62\\x6f\\x72\\x64\\x65\\x72\\x5f\\x62\\x67\\x20\\x69\\x6d\\x67')+'\\x2c\\x7b\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x7b\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x20\\x22'+host+'\\x22\\x7d\\x7d';_0x2026e5['\\x75\\x72\\x6c']=url;_0x2026e5['\\x64\\x75\\x72\\x6c']='';book=JSON['\\x73\\x74\\x72\\x69\\x6e\\x67\\x69\\x66\\x79'](_0x2026e5);for(x in i)book=ti(book,i[x],z[x]);\n<\/js>",
-      "wordCount" : "$.word",
-      "coverUrl" : "$.cover",
-      "tocUrl" : "$.url",
-      "downloadUrls" : "$.durl"
-    },
-    "ruleToc" : {
-      "chapterName" : "$.title",
-      "chapterList" : "<js>\nvar _0x3f5130=function(){var _0x235b20=!![];return function(_0x539c98,_0x412cb0){var _0x9a84e7=_0x235b20?function(){if(_0x412cb0){var _0x12c989=_0x412cb0['\\x61\\x70\\x70\\x6c\\x79'](_0x539c98,arguments);_0x412cb0=null;return _0x12c989;}}:function(){};_0x235b20=![];return _0x9a84e7;};}();var _0x5b321a=_0x3f5130(this,function(){var _0x515334=function(){var _0x1abcb3=_0x515334['\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72']('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x2f\\x22\\x20\\x2b\\x20\\x74\\x68\\x69\\x73\\x20\\x2b\\x20\\x22\\x2f')()['\\x63\\x6f\\x6d\\x70\\x69\\x6c\\x65']('\\x5e\\x28\\x5b\\x5e\\x20\\x5d\\x2b\\x28\\x20\\x2b\\x5b\\x5e\\x20\\x5d\\x2b\\x29\\x2b\\x29\\x2b\\x5b\\x5e\\x20\\x5d\\x7d');return!_0x1abcb3['\\x74\\x65\\x73\\x74'](_0x5b321a);};return _0x515334();});_0x5b321a();var _0x56a58d=function(){var _0x2bcb15=!![];return function(_0x54d73c,_0x2f4966){var _0x3c0472=_0x2bcb15?function(){if(_0x2f4966){var _0x4d4bf1=_0x2f4966['\\x61\\x70\\x70\\x6c\\x79'](_0x54d73c,arguments);_0x2f4966=null;return _0x4d4bf1;}}:function(){};_0x2bcb15=![];return _0x3c0472;};}();var _0x282533=_0x56a58d(this,function(){var _0x3a289e=function(){};var _0x2a5d71;try{var _0x414a2a=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x20\\x29'+'\\x29\\x3b');_0x2a5d71=_0x414a2a();}catch(_0x2f1c92){_0x2a5d71=window;}if(!_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']){_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']=function(_0x5cac02){var _0x2be4e3={};_0x2be4e3['\\x6c\\x6f\\x67']=_0x5cac02;_0x2be4e3['\\x77\\x61\\x72\\x6e']=_0x5cac02;_0x2be4e3['\\x64\\x65\\x62\\x75\\x67']=_0x5cac02;_0x2be4e3['\\x69\\x6e\\x66\\x6f']=_0x5cac02;_0x2be4e3['\\x65\\x72\\x72\\x6f\\x72']=_0x5cac02;_0x2be4e3['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x5cac02;_0x2be4e3['\\x74\\x61\\x62\\x6c\\x65']=_0x5cac02;_0x2be4e3['\\x74\\x72\\x61\\x63\\x65']=_0x5cac02;return _0x2be4e3;}(_0x3a289e);}else{_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x6c\\x6f\\x67']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x77\\x61\\x72\\x6e']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x64\\x65\\x62\\x75\\x67']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x69\\x6e\\x66\\x6f']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x72\\x72\\x6f\\x72']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x61\\x62\\x6c\\x65']=_0x3a289e;_0x2a5d71['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x72\\x61\\x63\\x65']=_0x3a289e;}});_0x282533();eval(String(java['\\x62\\x61\\x73\\x65\\x36\\x34\\x44\\x65\\x63\\x6f\\x64\\x65'](source['\\x62\\x6f\\x6f\\x6b\\x53\\x6f\\x75\\x72\\x63\\x65\\x43\\x6f\\x6d\\x6d\\x65\\x6e\\x74'])));Date['\\x70\\x72\\x6f\\x74\\x6f\\x74\\x79\\x70\\x65']['\\x46\\x6f\\x72\\x6d\\x61\\x74']=function(_0x5612ec){var _0x116a07={};_0x116a07['\\x4d\\x2b']=this['\\x67\\x65\\x74\\x4d\\x6f\\x6e\\x74\\x68']()+0x1;_0x116a07['\\x64\\x2b']=this['\\x67\\x65\\x74\\x44\\x61\\x74\\x65']();_0x116a07['\\x48\\x2b']=this['\\x67\\x65\\x74\\x48\\x6f\\x75\\x72\\x73']();_0x116a07['\\x6d\\x2b']=this['\\x67\\x65\\x74\\x4d\\x69\\x6e\\x75\\x74\\x65\\x73']();_0x116a07['\\x73\\x2b']=this['\\x67\\x65\\x74\\x53\\x65\\x63\\x6f\\x6e\\x64\\x73']();var _0x4c9ec5=_0x116a07;if(\/(y+)\/['\\x74\\x65\\x73\\x74'](_0x5612ec))_0x5612ec=_0x5612ec['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](RegExp['\\x24\\x31'],(this['\\x67\\x65\\x74\\x46\\x75\\x6c\\x6c\\x59\\x65\\x61\\x72']()+'')['\\x73\\x75\\x62\\x73\\x74\\x72'](0x4-RegExp['\\x24\\x31']['\\x6c\\x65\\x6e\\x67\\x74\\x68']));for(var _0x8190b5 in _0x4c9ec5)if(new RegExp('\\x28'+_0x8190b5+'\\x29')['\\x74\\x65\\x73\\x74'](_0x5612ec))_0x5612ec=_0x5612ec['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](RegExp['\\x24\\x31'],RegExp['\\x24\\x31']['\\x6c\\x65\\x6e\\x67\\x74\\x68']==0x1?_0x4c9ec5[_0x8190b5]:('\\x30\\x30'+_0x4c9ec5[_0x8190b5])['\\x73\\x75\\x62\\x73\\x74\\x72']((''+_0x4c9ec5[_0x8190b5])['\\x6c\\x65\\x6e\\x67\\x74\\x68']));return _0x5612ec;};date=new Date(new Date()['\\x67\\x65\\x74\\x54\\x69\\x6d\\x65']())['\\x46\\x6f\\x72\\x6d\\x61\\x74']('\\x79\\x79\\x79\\x79\\x2d\\x4d\\x4d\\x2d\\x64\\x64\\x20\\x48\\x48\\x3a\\x6d\\x6d\\x3a\\x73\\x73');var _0x3588eb=java['\\x67\\x65\\x74\\x45\\x6c\\x65\\x6d\\x65\\x6e\\x74\\x73']('\\x2e\\x76\\x69\\x65\\x77\\x2d\\x77\\x69\\x6e\\x2d\\x6c\\x69\\x73\\x74\\x20\\x6c\\x69\\x20\\x61'),_0x321603=[];for(i=0x0;i<_0x3588eb['\\x6c\\x65\\x6e\\x67\\x74\\x68'];i++){var _0x7a7d21={};_0x7a7d21['\\x74\\x69\\x74\\x6c\\x65']=i==_0x3588eb['\\x6c\\x65\\x6e\\x67\\x74\\x68']-0x1?_0x3588eb[i]['\\x74\\x65\\x78\\x74']()+'\\u3014'+date+'\\u3015':_0x3588eb[i]['\\x74\\x65\\x78\\x74']();_0x7a7d21['\\x6c\\x69\\x6e\\x6b']=_0x3588eb[i]['\\x61\\x74\\x74\\x72']('\\x68\\x72\\x65\\x66')+'\\x2c\\x7b\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x7b\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x20\\x22'+host+'\\x22\\x7d\\x7d';_0x321603['\\x70\\x75\\x73\\x68'](_0x7a7d21);};flag==0x1?(java['\\x70\\x75\\x74']('\\x45\\x6e\\x61\\x62\\x6c\\x65',0x1),JSON['\\x73\\x74\\x72\\x69\\x6e\\x67\\x69\\x66\\x79'](_0x321603)):java['\\x74\\x6f\\x61\\x73\\x74']('\\x0a\\u2757\\u672a\\u542f\\u7528\\u4e66\\u6e90\\u2757');\n<\/js>\n$[*]",
-      "preUpdateJs" : "java.refreshTocUrl()",
-      "chapterUrl" : "$.link"
-    },
-    "bookUrlPattern" : "http:\/\/.*(aba).*\/book\/\\d+",
-    "customOrder" : 840,
-    "errorMessage" : "成功",
-    "respondTime" : 2575,
-    "loginCheckJs" : "",
-    "bookSourceComment" : "ZmxhZyA9IDE7CmxvZ2luSW5mbyA9IHNvdXJjZS5nZXRMb2dpbkluZm9NYXAoKTsKbG9naW5JbmZvID09IG51bGwKICA\/IHYgPSAiIgogIDogdiA9CiAgICAgIGxvZ2luSW5mb1siSG9zdCJdID09IHVuZGVmaW5lZCB8fCBsb2dpbkluZm9bIkhvc3QiXSA9PSAiIgogICAgICAgID8gIiIKICAgICAgICA6IGxvZ2luSW5mb1siSG9zdCJdOwpob3N0ID0KICB2ID09IDEKICAgID8gImh0dHA6Ly9hYWJhbWguY29tIgogICAgOiB2ID09IDIKICAgID8gImh0dHA6Ly93d3cuYWJhbWguY29tIgogICAgOiB2ID09IDMKICAgID8gImh0dHA6Ly9hYmFtaC5jb20iCiAgICA6ICJodHRwOi8vYWFiYW1oLmNvbSIKZnVuY3Rpb24gdGkodGV4dCwgaSwgeikgewogIHJlZyA9IG5ldyBSZWdFeHAoaSwgImciKTsKICByZXR1cm4gdGV4dC5yZXBsYWNlKHJlZywgeik7Cn0KaSA9ICLlp4rlp6rllLflvrUiOwp6ID0gIuWnkOS+hOWTn+W+gSI7",
-    "loginUrl" : "\"\"",
-    "ruleContent" : {
-      "webJs" : "",
-      "imageDecode" : "",
-      "sourceRegex" : "",
-      "content" : "<js>\nvar _0x196d47=function(){var _0x3be434=!![];return function(_0x151ed9,_0x321a51){var _0x1eebe7=_0x3be434?function(){if(_0x321a51){var _0x1c7fc3=_0x321a51['\\x61\\x70\\x70\\x6c\\x79'](_0x151ed9,arguments);_0x321a51=null;return _0x1c7fc3;}}:function(){};_0x3be434=![];return _0x1eebe7;};}();var _0x2190dc=_0x196d47(this,function(){var _0x45a44f=function(){var _0x58e1d6=_0x45a44f['\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72']('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x2f\\x22\\x20\\x2b\\x20\\x74\\x68\\x69\\x73\\x20\\x2b\\x20\\x22\\x2f')()['\\x63\\x6f\\x6d\\x70\\x69\\x6c\\x65']('\\x5e\\x28\\x5b\\x5e\\x20\\x5d\\x2b\\x28\\x20\\x2b\\x5b\\x5e\\x20\\x5d\\x2b\\x29\\x2b\\x29\\x2b\\x5b\\x5e\\x20\\x5d\\x7d');return!_0x58e1d6['\\x74\\x65\\x73\\x74'](_0x2190dc);};return _0x45a44f();});_0x2190dc();var _0x14961c=function(){var _0x3b4823=!![];return function(_0xe025a4,_0xa2505d){var _0x3af0cd=_0x3b4823?function(){if(_0xa2505d){var _0x17fee3=_0xa2505d['\\x61\\x70\\x70\\x6c\\x79'](_0xe025a4,arguments);_0xa2505d=null;return _0x17fee3;}}:function(){};_0x3b4823=![];return _0x3af0cd;};}();var _0x1266ca=_0x14961c(this,function(){var _0x2f801=function(){};var _0x73b6ea;try{var _0x3a4aa5=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x20\\x29'+'\\x29\\x3b');_0x73b6ea=_0x3a4aa5();}catch(_0xbfae5b){_0x73b6ea=window;}if(!_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']){_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']=function(_0x22e311){var _0x3ff824={};_0x3ff824['\\x6c\\x6f\\x67']=_0x22e311;_0x3ff824['\\x77\\x61\\x72\\x6e']=_0x22e311;_0x3ff824['\\x64\\x65\\x62\\x75\\x67']=_0x22e311;_0x3ff824['\\x69\\x6e\\x66\\x6f']=_0x22e311;_0x3ff824['\\x65\\x72\\x72\\x6f\\x72']=_0x22e311;_0x3ff824['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x22e311;_0x3ff824['\\x74\\x61\\x62\\x6c\\x65']=_0x22e311;_0x3ff824['\\x74\\x72\\x61\\x63\\x65']=_0x22e311;return _0x3ff824;}(_0x2f801);}else{_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x6c\\x6f\\x67']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x77\\x61\\x72\\x6e']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x64\\x65\\x62\\x75\\x67']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x69\\x6e\\x66\\x6f']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x72\\x72\\x6f\\x72']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x61\\x62\\x6c\\x65']=_0x2f801;_0x73b6ea['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x72\\x61\\x63\\x65']=_0x2f801;}});_0x1266ca();eval(String(java['\\x62\\x61\\x73\\x65\\x36\\x34\\x44\\x65\\x63\\x6f\\x64\\x65'](source['\\x62\\x6f\\x6f\\x6b\\x53\\x6f\\x75\\x72\\x63\\x65\\x43\\x6f\\x6d\\x6d\\x65\\x6e\\x74'])));var _0x657761=[];list=java['\\x67\\x65\\x74\\x45\\x6c\\x65\\x6d\\x65\\x6e\\x74\\x73']('\\x2e\\x6c\\x61\\x7a\\x79');for(i in list){pic=String(list[i]['\\x61\\x74\\x74\\x72']('\\x64\\x61\\x74\\x61\\x2d\\x6f\\x72\\x69\\x67\\x69\\x6e\\x61\\x6c'))+'\\x2c\\x7b\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x7b\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x20\\x22'+host+'\\x22\\x7d\\x7d';_0x657761['\\x70\\x75\\x73\\x68']('\\x3c\\x62\\x72\\x3e\\x3c\\x69\\x6d\\x67\\x20\\x73\\x72\\x63\\x3d\\x22'+pic+'\\x22\\x3e');}java['\\x67\\x65\\x74']('\\x45\\x6e\\x61\\x62\\x6c\\x65')==0x1?JSON['\\x73\\x74\\x72\\x69\\x6e\\x67\\x69\\x66\\x79'](_0x657761):java['\\x74\\x6f\\x61\\x73\\x74']('\\x0a\\u2757\\u672a\\u542f\\u7528\\u4e66\\u6e90\\u2757');\n<\/js>\n$[*]",
-      "title" : "",
-      "payAction" : "",
-      "imageStyle" : "FULL"
-    },
-    "weight" : 0,
-    "loginUi" : "[\n  {\n    name: \"Host\",\n    type: \"text\"\n  },\n  { name: \"  【1】阿吧漫画[1]　  \", type: \"button\", action: \"http:\/\/aabamh.com\" },\n  { name: \"  【2】阿吧漫画[2]　  \", type: \"button\", action: \"http:\/\/www.abamh.com\" },\n  { name: \"  【3】阿吧漫画[3]　  \", type: \"button\", action: \"http:\/\/abamh.com\" }\n]",
-    "key" : "阿吧漫画",
-    "concurrentRate" : "",
-    "searchUrl" : "<js>\nvar _0x4bbf18=function(){var _0x46297f=!![];return function(_0x43207b,_0x575a22){var _0x5713b9=_0x46297f?function(){if(_0x575a22){var _0x4cd637=_0x575a22['\\x61\\x70\\x70\\x6c\\x79'](_0x43207b,arguments);_0x575a22=null;return _0x4cd637;}}:function(){};_0x46297f=![];return _0x5713b9;};}();var _0x44583b=_0x4bbf18(this,function(){var _0x77a79=function(){var _0x6a097c=_0x77a79['\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72']('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x2f\\x22\\x20\\x2b\\x20\\x74\\x68\\x69\\x73\\x20\\x2b\\x20\\x22\\x2f')()['\\x63\\x6f\\x6d\\x70\\x69\\x6c\\x65']('\\x5e\\x28\\x5b\\x5e\\x20\\x5d\\x2b\\x28\\x20\\x2b\\x5b\\x5e\\x20\\x5d\\x2b\\x29\\x2b\\x29\\x2b\\x5b\\x5e\\x20\\x5d\\x7d');return!_0x6a097c['\\x74\\x65\\x73\\x74'](_0x44583b);};return _0x77a79();});_0x44583b();var _0x393608=function(){var _0x5f51dc=!![];return function(_0x447e38,_0x1cf894){var _0xe6ddab=_0x5f51dc?function(){if(_0x1cf894){var _0x51c416=_0x1cf894['\\x61\\x70\\x70\\x6c\\x79'](_0x447e38,arguments);_0x1cf894=null;return _0x51c416;}}:function(){};_0x5f51dc=![];return _0xe6ddab;};}();var _0x263057=_0x393608(this,function(){var _0x347311=function(){};var _0x1bc205;try{var _0x51d6ce=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x20\\x29'+'\\x29\\x3b');_0x1bc205=_0x51d6ce();}catch(_0x56dac7){_0x1bc205=window;}if(!_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']){_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']=function(_0x4cb968){var _0x463df5={};_0x463df5['\\x6c\\x6f\\x67']=_0x4cb968;_0x463df5['\\x77\\x61\\x72\\x6e']=_0x4cb968;_0x463df5['\\x64\\x65\\x62\\x75\\x67']=_0x4cb968;_0x463df5['\\x69\\x6e\\x66\\x6f']=_0x4cb968;_0x463df5['\\x65\\x72\\x72\\x6f\\x72']=_0x4cb968;_0x463df5['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x4cb968;_0x463df5['\\x74\\x61\\x62\\x6c\\x65']=_0x4cb968;_0x463df5['\\x74\\x72\\x61\\x63\\x65']=_0x4cb968;return _0x463df5;}(_0x347311);}else{_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x6c\\x6f\\x67']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x77\\x61\\x72\\x6e']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x64\\x65\\x62\\x75\\x67']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x69\\x6e\\x66\\x6f']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x72\\x72\\x6f\\x72']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x61\\x62\\x6c\\x65']=_0x347311;_0x1bc205['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x72\\x61\\x63\\x65']=_0x347311;}});_0x263057();eval(String(java['\\x62\\x61\\x73\\x65\\x36\\x34\\x44\\x65\\x63\\x6f\\x64\\x65'](source['\\x62\\x6f\\x6f\\x6b\\x53\\x6f\\x75\\x72\\x63\\x65\\x43\\x6f\\x6d\\x6d\\x65\\x6e\\x74'])));flag==0x1?host+'\\x2f\\x73\\x65\\x61\\x72\\x63\\x68\\x3f\\x6b\\x65\\x79\\x77\\x6f\\x72\\x64\\x3d'+key+'\\x2c\\x7b\\x0a\\x20\\x20\\x20\\x20\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x20\\x7b\\x0a\\x20\\x20\\x20\\x20\\x20\\x20\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x22'+host+'\\x22\\x0a\\x20\\x20\\x20\\x20\\x7d\\x0a\\x20\\x20\\x7d':java['\\x74\\x6f\\x61\\x73\\x74']('\\x0a\\u2757\\u672a\\u542f\\u7528\\u4e66\\u6e90\\u2757');\n<\/js>",
-    "ruleSearch" : {
-      "wordCount" : "$.word",
-      "name" : "$.name\n<js>\nvar _0x3487f4=function(){var _0x5324a0=!![];return function(_0x4d2872,_0x2fe0a7){var _0x459898=_0x5324a0?function(){if(_0x2fe0a7){var _0x37c8e9=_0x2fe0a7['\\x61\\x70\\x70\\x6c\\x79'](_0x4d2872,arguments);_0x2fe0a7=null;return _0x37c8e9;}}:function(){};_0x5324a0=![];return _0x459898;};}();var _0x44a55e=_0x3487f4(this,function(){var _0x46c885=function(){var _0x54bd7d=_0x46c885['\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72']('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x2f\\x22\\x20\\x2b\\x20\\x74\\x68\\x69\\x73\\x20\\x2b\\x20\\x22\\x2f')()['\\x63\\x6f\\x6d\\x70\\x69\\x6c\\x65']('\\x5e\\x28\\x5b\\x5e\\x20\\x5d\\x2b\\x28\\x20\\x2b\\x5b\\x5e\\x20\\x5d\\x2b\\x29\\x2b\\x29\\x2b\\x5b\\x5e\\x20\\x5d\\x7d');return!_0x54bd7d['\\x74\\x65\\x73\\x74'](_0x44a55e);};return _0x46c885();});_0x44a55e();var _0x4214a8=function(){var _0x2bb593=!![];return function(_0x1edcaa,_0x1ebc14){var _0x58a6e6=_0x2bb593?function(){if(_0x1ebc14){var _0x3455eb=_0x1ebc14['\\x61\\x70\\x70\\x6c\\x79'](_0x1edcaa,arguments);_0x1ebc14=null;return _0x3455eb;}}:function(){};_0x2bb593=![];return _0x58a6e6;};}();var _0x54174e=_0x4214a8(this,function(){var _0x10e1c6=function(){};var _0x2cc8e5;try{var _0x2387cb=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x20\\x29'+'\\x29\\x3b');_0x2cc8e5=_0x2387cb();}catch(_0x3e8470){_0x2cc8e5=window;}if(!_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']){_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']=function(_0x194301){var _0x2f3afa={};_0x2f3afa['\\x6c\\x6f\\x67']=_0x194301;_0x2f3afa['\\x77\\x61\\x72\\x6e']=_0x194301;_0x2f3afa['\\x64\\x65\\x62\\x75\\x67']=_0x194301;_0x2f3afa['\\x69\\x6e\\x66\\x6f']=_0x194301;_0x2f3afa['\\x65\\x72\\x72\\x6f\\x72']=_0x194301;_0x2f3afa['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x194301;_0x2f3afa['\\x74\\x61\\x62\\x6c\\x65']=_0x194301;_0x2f3afa['\\x74\\x72\\x61\\x63\\x65']=_0x194301;return _0x2f3afa;}(_0x10e1c6);}else{_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x6c\\x6f\\x67']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x77\\x61\\x72\\x6e']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x64\\x65\\x62\\x75\\x67']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x69\\x6e\\x66\\x6f']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x72\\x72\\x6f\\x72']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x61\\x62\\x6c\\x65']=_0x10e1c6;_0x2cc8e5['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x72\\x61\\x63\\x65']=_0x10e1c6;}});_0x54174e();eval(String(java['\\x62\\x61\\x73\\x65\\x36\\x34\\x44\\x65\\x63\\x6f\\x64\\x65'](source['\\x62\\x6f\\x6f\\x6b\\x53\\x6f\\x75\\x72\\x63\\x65\\x43\\x6f\\x6d\\x6d\\x65\\x6e\\x74'])));for(x in i)result=ti(result,i[x],z[x]);\n<\/js>",
-      "author" : "$.author",
-      "coverUrl" : "$.cover",
-      "bookUrl" : "$.url",
-      "intro" : "$.intro",
-      "kind" : "$.kind",
-      "bookList" : "<js>\nvar _0x5cd87a=function(){var _0xf919cd=!![];return function(_0xdc35d5,_0x529988){var _0x3d1242=_0xf919cd?function(){if(_0x529988){var _0x51de85=_0x529988['\\x61\\x70\\x70\\x6c\\x79'](_0xdc35d5,arguments);_0x529988=null;return _0x51de85;}}:function(){};_0xf919cd=![];return _0x3d1242;};}();var _0x5179f8=_0x5cd87a(this,function(){var _0x4e16d8=function(){var _0x23a302=_0x4e16d8['\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72']('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x2f\\x22\\x20\\x2b\\x20\\x74\\x68\\x69\\x73\\x20\\x2b\\x20\\x22\\x2f')()['\\x63\\x6f\\x6d\\x70\\x69\\x6c\\x65']('\\x5e\\x28\\x5b\\x5e\\x20\\x5d\\x2b\\x28\\x20\\x2b\\x5b\\x5e\\x20\\x5d\\x2b\\x29\\x2b\\x29\\x2b\\x5b\\x5e\\x20\\x5d\\x7d');return!_0x23a302['\\x74\\x65\\x73\\x74'](_0x5179f8);};return _0x4e16d8();});_0x5179f8();var _0x26479d=function(){var _0x3ebd9c=!![];return function(_0x5626d4,_0x48b8d3){var _0x4d4863=_0x3ebd9c?function(){if(_0x48b8d3){var _0x5d0d9e=_0x48b8d3['\\x61\\x70\\x70\\x6c\\x79'](_0x5626d4,arguments);_0x48b8d3=null;return _0x5d0d9e;}}:function(){};_0x3ebd9c=![];return _0x4d4863;};}();var _0x108118=_0x26479d(this,function(){var _0x1f0f2e=function(){};var _0x575e03=function(){var _0x2854f0;try{_0x2854f0=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x20\\x29'+'\\x29\\x3b')();}catch(_0x9be94c){_0x2854f0=window;}return _0x2854f0;};var _0x3e4eae=_0x575e03();if(!_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']){_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']=function(_0x4c1817){var _0x4097f6={};_0x4097f6['\\x6c\\x6f\\x67']=_0x4c1817;_0x4097f6['\\x77\\x61\\x72\\x6e']=_0x4c1817;_0x4097f6['\\x64\\x65\\x62\\x75\\x67']=_0x4c1817;_0x4097f6['\\x69\\x6e\\x66\\x6f']=_0x4c1817;_0x4097f6['\\x65\\x72\\x72\\x6f\\x72']=_0x4c1817;_0x4097f6['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x4c1817;_0x4097f6['\\x74\\x61\\x62\\x6c\\x65']=_0x4c1817;_0x4097f6['\\x74\\x72\\x61\\x63\\x65']=_0x4c1817;return _0x4097f6;}(_0x1f0f2e);}else{_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x6c\\x6f\\x67']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x77\\x61\\x72\\x6e']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x64\\x65\\x62\\x75\\x67']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x69\\x6e\\x66\\x6f']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x72\\x72\\x6f\\x72']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x65\\x78\\x63\\x65\\x70\\x74\\x69\\x6f\\x6e']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x61\\x62\\x6c\\x65']=_0x1f0f2e;_0x3e4eae['\\x63\\x6f\\x6e\\x73\\x6f\\x6c\\x65']['\\x74\\x72\\x61\\x63\\x65']=_0x1f0f2e;}});_0x108118();eval(String(java['\\x62\\x61\\x73\\x65\\x36\\x34\\x44\\x65\\x63\\x6f\\x64\\x65'](source['\\x62\\x6f\\x6f\\x6b\\x53\\x6f\\x75\\x72\\x63\\x65\\x43\\x6f\\x6d\\x6d\\x65\\x6e\\x74'])));var _0x5171af=java['\\x67\\x65\\x74\\x45\\x6c\\x65\\x6d\\x65\\x6e\\x74\\x73']('\\x2e\\x6d\\x68\\x2d\\x69\\x74\\x65\\x6d'),_0x41db17=[];for(i=0x0;i<_0x5171af['\\x6c\\x65\\x6e\\x67\\x74\\x68'];i++){var _0x3ab502={};_0x3ab502['\\x6e\\x61\\x6d\\x65']=_0x5171af[i]['\\x73\\x65\\x6c\\x65\\x63\\x74']('\\x2e\\x74\\x69\\x74\\x6c\\x65')['\\x74\\x65\\x78\\x74']();_0x3ab502['\\x61\\x75\\x74\\x68\\x6f\\x72']='';_0x3ab502['\\x6b\\x69\\x6e\\x64']='';_0x3ab502['\\x77\\x6f\\x72\\x64']='';_0x3ab502['\\x6c\\x61\\x74\\x65\\x73\\x74']='';_0x3ab502['\\x69\\x6e\\x74\\x72\\x6f']='';_0x3ab502['\\x63\\x6f\\x76\\x65\\x72']=String(_0x5171af[i]['\\x73\\x65\\x6c\\x65\\x63\\x74']('\\x2e\\x6d\\x68\\x2d\\x63\\x6f\\x76\\x65\\x72')['\\x61\\x74\\x74\\x72']('\\x73\\x74\\x79\\x6c\\x65'))['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](\/.*\\((.*)\\),.*\/,'\\x24\\x31')+'\\x2c\\x7b\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x7b\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x20\\x22'+host+'\\x22\\x7d\\x7d';_0x3ab502['\\x75\\x72\\x6c']=_0x5171af[i]['\\x73\\x65\\x6c\\x65\\x63\\x74']('\\x61')['\\x61\\x74\\x74\\x72']('\\x68\\x72\\x65\\x66')+'\\x2c\\x7b\\x22\\x68\\x65\\x61\\x64\\x65\\x72\\x73\\x22\\x3a\\x7b\\x22\\x52\\x65\\x66\\x65\\x72\\x65\\x72\\x22\\x3a\\x20\\x22'+host+'\\x22\\x7d\\x7d';_0x41db17['\\x70\\x75\\x73\\x68'](_0x3ab502);}JSON['\\x73\\x74\\x72\\x69\\x6e\\x67\\x69\\x66\\x79'](_0x41db17);\n<\/js>\n$[:10]",
-      "lastChapter" : "$.latest"
-    },
-    "header" : "",
-    "checkKeyWord" : ""
   },
   {
     "ruleSearch" : {
@@ -1648,73 +1215,7 @@
     "errorMessage" : "成功",
     "enabledExplore" : true
   },
-  {
-    "bookSourceGroup" : "🖼️漫画",
-    "enabled" : true,
-    "ruleBookInfo" : {
-      "wordCount" : "class.detail-main-info-author.2@a@text",
-      "lastChapter" : "class.detail-list-select@tag.li.-1@tag.a@text",
-      "intro" : "class.detail-desc@text",
-      "kind" : "class.detail-main-info-class@a@text",
-      "coverUrl" : "tag.img@data-original",
-      "name" : "class.normal-top-title@text",
-      "author" : "class.detail-main-info-author.1@a@text"
-    },
-    "loginUi" : "",
-    "concurrentRate" : "",
-    "customOrder" : 1602,
-    "searchUrl" : "https:\/\/www.kukk.net\/search,{\n\"charset\": \"\",\n\"method\": \"POST\",\n\"body\": \"keyword={{key}}\"\n}",
-    "exploreUrl" : "连载::\/booklist\/?end=0&page={{page}}\n完结::\/booklist?end=1&page={{page}}\n更新::\/update?page={{page}}\n﻿恋爱::\/booklist?page={{page}}&tag=恋爱\n少年::\/booklist?page={{page}}&tag=少年\n古风::\/booklist?page={{page}}&tag=古风\n奇幻::\/booklist?page={{page}}&tag=奇幻\n搞笑::\/booklist?page={{page}}&tag=搞笑\n校园::\/booklist?page={{page}}&tag=校园\n都市::\/booklist?page={{page}}&tag=都市\n治愈::\/booklist?page={{page}}&tag=治愈\n悬疑::\/booklist?page={{page}}&tag=悬疑\n励志::\/booklist?page={{page}}&tag=励志\n热血::\/booklist?page={{page}}&tag=热血\n冒险::\/booklist?page={{page}}&tag=冒险\n后宫::\/booklist?page={{page}}&tag=后宫\n穿越::\/booklist?page={{page}}&tag=穿越\n百合::\/booklist?page={{page}}&tag=百合\n推理::\/booklist?page={{page}}&tag=推理\n萌系::\/booklist?page={{page}}&tag=萌系\n职场::\/booklist?page={{page}}&tag=职场\n魔幻::\/booklist?page={{page}}&tag=魔幻\n生活::\/booklist?page={{page}}&tag=生活\n科幻::\/booklist?page={{page}}&tag=科幻\n机战::\/booklist?page={{page}}&tag=机战\n战争::\/booklist?page={{page}}&tag=战争\n美食::\/booklist?page={{page}}&tag=美食\n轻小说::\/booklist?page={{page}}&tag=轻小说",
-    "bookSourceName" : "✐ 酷看漫画",
-    "ruleSearch" : {
-      "intro" : "tag.p.1@text",
-      "bookList" : "class.book-list@li",
-      "bookUrl" : "tag.a@href",
-      "coverUrl" : "tag.img@data-original",
-      "name" : "tag.p.0@text"
-    },
-    "ruleExplore" : {
-      "intro" : "class.book-list-info-des@text",
-      "name" : "tag.a.1@text",
-      "bookList" : "class.manga-list-2@li",
-      "coverUrl" : "tag.img@data-original",
-      "author" : "class.book-list-info-bottom-item@text",
-      "lastChapter" : "tag.p.1@text",
-      "kind" : "tag.span.1@text",
-      "bookUrl" : "tag.a@href"
-    },
-    "variableComment" : "",
-    "weight" : 75,
-    "ruleToc" : {
-      "chapterUrl" : "href",
-      "chapterName" : "text",
-      "chapterList" : "#detail-list-select a"
-    },
-    "ruleContent" : {
-      "title" : "",
-      "imageDecode" : "",
-      "content" : ".lazy@html##src=.*\\\"@js:result.replace(\/data-original\/g,\"src\")",
-      "webJs" : "",
-      "imageStyle" : "FULL",
-      "payAction" : "",
-      "sourceRegex" : ""
-    },
-    "bookSourceComment" : "",
-    "enabledExplore" : true,
-    "loginUrl" : "",
-    
-    "key" : "https:\/\/www.kukk.net#Haxc1107",
-    "bookUrlPattern" : "",
-    "header" : "{\n  \"User-Agent\": \"Mozilla\/5.0 (Linux; Android 8.1.0; JKM-AL00b Build\/HUAWEIJKM-AL00b; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/66.0.3359.126 MQQBrowser\/6.2 TBS\/044807 Mobile Safari\/537.36\"\n}",
-    "loginCheckJs" : "",
-    "bookSourceUrl" : "https:\/\/www.kukk.net#Haxc1107",
-    "lastUpdateTime" : 1728717334182,
-    "enabledCookieJar" : true,
-    "jsLib" : "",
-    "respondTime" : 718,
-    "bookSourceType" : 2,
-    "errorMessage" : "成功"
-  },
+
   {
     "loginCheckJs" : "",
     "enabledCookieJar" : true,
@@ -1817,6 +1318,7 @@
       "kind" : "$.category||$.recommend_tag[1].title",
       "coverUrl" : "$.vertical_image_url||$.image_url||$.cover_image_info.images[*].url",
       "lastChapter" : "$.latest_comic_title",
+      "checkKeyWord" : "好想拥有10个亿",
       "name" : "$.title.text||$.title"
     },
     "ruleToc" : {
@@ -2507,66 +2009,6 @@
     "enabled" : true
   },
   {
-    "ruleBookInfo" : {
-      "author" : "p.detail-main-info-author@tag.a@text",
-      "coverUrl" : "img.detail-main-bg@src",
-      "intro" : "p.detail-desc@text",
-      "kind" : "p.detail-main-info-class@tag.a@text",
-      "lastChapter" : "ul.detail-list-select@tag,li.0@text",
-      "name" : "p.detail-main-info-title@text"
-    },
-    "ruleSearch" : {
-      "bookUrl" : "tag.a.0@href",
-      "intro" : "p.book-list-info-desc@text",
-      "name" : "p.book-list-info-title@text",
-      "author" : "tag.p.0@text",
-      "coverUrl" : "tag.img@src",
-      "bookList" : "ul.book-list@tag.li"
-    },
-    "enabled" : true,
-    "respondTime" : 138,
-    
-    "exploreUrl" : "",
-    "loginCheckJs" : "",
-    "key" : "https:\/\/m.dm5.com",
-    "variableComment" : "",
-    "loginUi" : "",
-    "bookSourceComment" : "",
-    "bookSourceUrl" : "https:\/\/m.dm5.com",
-    "enabledCookieJar" : true,
-    "ruleExplore" : {
-
-    },
-    "loginUrl" : "",
-    "searchUrl" : "https:\/\/m.dm5.com\/search?title={{key}}&language=1",
-    "header" : "",
-    "bookSourceGroup" : "漫画 书源",
-    "lastUpdateTime" : 1734945453513,
-    "weight" : 0,
-    "concurrentRate" : "",
-    "bookSourceType" : 2,
-    "customOrder" : 2178,
-    "enabledExplore" : true,
-    "ruleContent" : {
-      "content" : "@js:header={\"Referer\":baseUrl};\nheaders={\"headers\":JSON.stringify(header)};\neval(result.match(\/eval(.*?)\\{\\}\\)\\)\/)[0])\nvar image_list = []\nnewImgs.map(item=>{\n    image_list.push('<img src=\"'+item+','+JSON.stringify(headers)+'\">')\n})\nimage_list.join(\"\\n\")",
-      "imageDecode" : "",
-      "webJs" : "",
-      "sourceRegex" : "",
-      "title" : "",
-      "imageStyle" : "",
-      "payAction" : ""
-    },
-    "ruleToc" : {
-      "chapterName" : "tag.a@text",
-      "chapterUrl" : "tag.a@href",
-      "chapterList" : "-ul.detail-list-select@li"
-    },
-    "bookUrlPattern" : "",
-    "bookSourceName" : "漫画小屋（优）",
-    "jsLib" : "",
-    "errorMessage" : "成功"
-  },
-  {
     "bookSourceComment" : "",
     "header" : "",
     "bookSourceName" : "名著阅读（优）",
@@ -2750,66 +2192,7 @@
     "loginCheckJs" : "",
     "loginUrl" : ""
   },
-  {
-    "weight" : 0,
-    "errorMessage" : "成功",
-    "jsLib" : "",
-    "enabledExplore" : true,
-    "loginUrl" : "",
-    "loginUi" : "",
-    "bookSourceName" : "漫画小屋（优）",
-    "searchUrl" : "https:\/\/m.dm5.com\/search?title={{key}}&language=1",
-    "ruleBookInfo" : {
-      "lastChapter" : "ul.detail-list-select@tag,li.0@text",
-      "name" : "p.detail-main-info-title@text",
-      "intro" : "p.detail-desc@text",
-      "kind" : "p.detail-main-info-class@tag.a@text",
-      "author" : "p.detail-main-info-author@tag.a@text",
-      "coverUrl" : "img.detail-main-bg@src"
-    },
-    "key" : "https:\/\/m.dm5.com\/",
-    "loginCheckJs" : "",
-    "enabled" : true,
-    "ruleExplore" : {
-
-    },
-    "header" : "",
-    "bookSourceType" : 2,
-    "enabledCookieJar" : true,
-    "customOrder" : 2182,
-    "ruleContent" : {
-      "sourceRegex" : "",
-      "title" : "",
-      "webJs" : "",
-      "content" : "@js:header={\"Referer\":baseUrl};\nheaders={\"headers\":JSON.stringify(header)};\neval(result.match(\/eval(.*?)\\{\\}\\)\\)\/)[0])\nvar image_list = []\nnewImgs.map(item=>{\n    image_list.push('<img src=\"'+item+','+JSON.stringify(headers)+'\">')\n})\nimage_list.join(\"\\n\")",
-      "imageStyle" : "",
-      "imageDecode" : "",
-      "payAction" : ""
-    },
-    "lastUpdateTime" : 1732184308404,
-    "variableComment" : "",
-    "ruleToc" : {
-      "chapterName" : "tag.a@text",
-      "chapterUrl" : "tag.a@href",
-      "chapterList" : "-ul.detail-list-select@li"
-    },
-    "exploreUrl" : "",
-    "bookSourceComment" : "",
-    
-    "bookUrlPattern" : "",
-    "bookSourceGroup" : "漫画 书源",
-    "ruleSearch" : {
-      "coverUrl" : "tag.img@src",
-      "intro" : "p.book-list-info-desc@text",
-      "bookList" : "ul.book-list@tag.li",
-      "name" : "p.book-list-info-title@text",
-      "bookUrl" : "tag.a.0@href",
-      "author" : "tag.p.0@text"
-    },
-    "respondTime" : 1,
-    "bookSourceUrl" : "https:\/\/m.dm5.com\/",
-    "concurrentRate" : ""
-  },
+ 
   {
     "respondTime" : 80,
     "lastUpdateTime" : 1720291343809,
@@ -2865,66 +2248,6 @@
       "title" : "",
       "imageDecode" : ""
     }
-  },
-  {
-    "searchUrl" : "http:\/\/m.dm5.com\/pagerdata.ashx,{\n  \"method\": \"POST\",\n  \"body\": \"t=7&pageindex={{page}}&f=0&title={{key}}\"\n}",
-    "ruleSearch" : {
-      "kind" : "$.Categorys",
-      "bookList" : "$.UpdateComicItems.*||$.*[?(@.Title)]",
-      "bookUrl" : "$.UrlKey||$.Url@js:\n'http:\/\/m.dm5.com\/'+result",
-      "author" : "$.Author.*",
-      "coverUrl" : "$.ShowPicUrlB||$.ShowConver||$.BigPic",
-      "lastChapter" : "$.ComicPart||$.LastUpdateInfo@js:result.replace(unescape(\"@get:{name}\"),\"\")",
-      "name" : "Title"
-    },
-    "loginCheckJs" : "",
-    "bookSourceName" : "动漫屋子（优）",
-    "enabled" : true,
-    "bookSourceType" : 2,
-    "bookUrlPattern" : "",
-    "exploreUrl" : "全部漫画::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=0&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n最近更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=0&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n最新上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=0&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n热血热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=31&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n热血更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=31&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n热血上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=31&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n恋爱热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=26&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n恋爱更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=26&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n恋爱上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=26&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n校园热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=1&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n校园更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=1&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n校园上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=1&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n百合热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=3&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n百合更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=3&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n百合上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=3&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n彩虹热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=27&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n彩虹更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=27&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n彩虹上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=27&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n伪娘热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=5&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n伪娘更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=5&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n伪娘上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=5&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n冒险热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=2&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n冒险更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=2&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n冒险上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=2&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n职场热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=6&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n职场更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=6&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n职场上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=6&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n后宫热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=8&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n后宫更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=8&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n后宫上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=8&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n治愈热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=9&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n治愈更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=9&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n治愈上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=9&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n科幻热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=25&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n科幻更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=25&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n科幻上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=25&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n轻文热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=156&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n轻文更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=156&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n轻文上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=156&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n励志热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=10&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n励志更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=10&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n励志上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=10&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n生活热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=11&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n生活更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=11&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n生活上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=11&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n战争热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=12&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n战争更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=12&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n战争上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=12&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n悬疑热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=17&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n悬疑更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=17&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n悬疑上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=17&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n推理热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=33&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n推理更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=33&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n推理上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=33&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n搞笑热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=37&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n搞笑更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=37&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n搞笑上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=37&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n奇幻热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=14&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n奇幻更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=14&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n奇幻上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=14&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n魔法热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=15&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n魔法更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=15&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n魔法上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=15&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n恐怖热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=29&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n恐怖更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=29&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n恐怖上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=29&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n神鬼热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=20&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n神鬼更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=20&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n神鬼上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=20&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n萌系热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=21&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n萌系更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=21&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n萌系上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=21&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n历史热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=4&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n历史更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=4&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n历史上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=4&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n美食热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=7&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n美食更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=7&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n美食上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=7&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n同人热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=30&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n同人更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=30&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n同人上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=30&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n运动热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=34&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n运动更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=34&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n运动上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=34&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n绅士热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=36&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n绅士更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=36&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n绅士上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=36&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n机甲热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=40&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n机甲更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=40&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n机甲上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=40&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0",
-    "header" : "{\n    'User-Agent': 'Mobile'\n }",
-    "weight" : 0,
-    "concurrentRate" : "",
-    "ruleToc" : {
-      "chapterName" : "text",
-      "chapterUrl" : "href",
-      "chapterList" : "-class.detail-list-1 li a||class.chapteritem"
-    },
-    
-    "lastUpdateTime" : 1734957359889,
-    "variableComment" : "",
-    "respondTime" : 180142,
-    "loginUi" : "",
-    "ruleExplore" : {
-
-    },
-    "loginUrl" : "",
-    "bookSourceComment" : "\/\/ Error: json string can not be null or empty",
-    "bookSourceGroup" : "漫画 书源",
-    "bookSourceUrl" : "http:\/\/m.dm5.com",
-    "ruleContent" : {
-      "imageDecode" : "",
-      "content" : "@js:\nheaders={\"headers\":{\"Referer\":baseUrl}};\r\ntry{\r\neval(result.match(\/(eval\\([\\s\\S]+?)<\\\/script\/)[1]);\r\nnewImgs.map(a=>\r\n'<img src=\"'+a+','+JSON.stringify(headers)+'\">').join(\"\\n\")\r\n}catch(e){}",
-      "payAction" : "",
-      "title" : "",
-      "imageStyle" : "",
-      "sourceRegex" : "",
-      "webJs" : ""
-    },
-    "enabledExplore" : true,
-    "key" : "http:\/\/m.dm5.com",
-    "customOrder" : 2185,
-    "enabledCookieJar" : false,
-    "errorMessage" : "成功",
-    "ruleBookInfo" : {
-      "author" : ".detail-main-info-author@a@text",
-      "intro" : "class.detail-desc@text",
-      "name" : ".normal-top-title@text",
-      "kind" : "class.detail-main-info-class@text",
-      "lastChapter" : ".detail-list-title-2@text"
-    },
-    "jsLib" : ""
   },
   {
     "loginCheckJs" : "",
@@ -4064,6 +3387,7 @@
       "bookList" : "$.data.list.*",
       "bookUrl" : "https:\/\/comic.mkzhan.com\/comic\/info\/?comic_id={$.comic_id}",
       "lastChapter" : "$.chapter_title",
+      "checkKeyWord" : "10",
       "author" : "$.author_title@put:{author:$.author_title}"
     },
     "concurrentRate" : "",
@@ -4564,5 +3888,65 @@
     "enabled" : true,
     "bookUrlPattern" : "",
     "variableComment" : ""
-  }
+  },
+      {
+        "enabled" : true,
+        "respondTime" : 1,
+        "ruleContent" : {
+          "imageStyle" : "",
+          "content" : "@js:header={\"Referer\":baseUrl};\nheaders={\"headers\":JSON.stringify(header)};\neval(result.match(\/eval(.*?)\\{\\}\\)\\)\/)[0])\nvar image_list = []\nnewImgs.map(item=>{\n    image_list.push('<img src=\"'+item+','+JSON.stringify(headers)+'\">')\n})\nimage_list.join(\"\\n\")",
+          "title" : "",
+          "imageDecode" : "",
+          "payAction" : "",
+          "webJs" : "",
+          "sourceRegex" : ""
+        },
+        "bookSourceName" : "漫画小屋（优）",
+        "concurrentRate" : "",
+        "ruleBookInfo" : {
+          "name" : "p.detail-main-info-title@text",
+          "kind" : "p.detail-main-info-class@tag.a@text",
+          "author" : "p.detail-main-info-author@tag.a@text",
+          "coverUrl" : "img.detail-main-bg@src",
+          "intro" : "p.detail-desc@text",
+          "lastChapter" : "ul.detail-list-select@tag,li.0@text"
+        },
+        "loginUi" : "",
+        "customOrder" : 49,
+        "loginUrl" : "",
+        "bookSourceGroup" : "漫画 书源",
+        "bookSourceComment" : "",
+         "exploreUrl" : "全部漫画::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=0&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n最近更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=0&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n最新上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=0&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n热血热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=31&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n热血更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=31&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n热血上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=31&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n恋爱热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=26&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n恋爱更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=26&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n恋爱上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=26&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n校园热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=1&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n校园更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=1&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n校园上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=1&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n百合热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=3&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n百合更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=3&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n百合上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=3&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n彩虹热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=27&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n彩虹更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=27&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n彩虹上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=27&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n伪娘热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=5&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n伪娘更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=5&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n伪娘上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=5&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n冒险热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=2&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n冒险更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=2&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n冒险上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=2&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n职场热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=6&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n职场更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=6&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n职场上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=6&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n后宫热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=8&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n后宫更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=8&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n后宫上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=8&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n治愈热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=9&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n治愈更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=9&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n治愈上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=9&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n科幻热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=25&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n科幻更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=25&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n科幻上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=25&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n轻文热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=156&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n轻文更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=156&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n轻文上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=156&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n励志热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=10&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n励志更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=10&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n励志上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=10&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n生活热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=11&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n生活更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=11&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n生活上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=11&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n战争热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=12&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n战争更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=12&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n战争上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=12&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n悬疑热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=17&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n悬疑更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=17&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n悬疑上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=17&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n推理热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=33&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n推理更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=33&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n推理上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=33&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n搞笑热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=37&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n搞笑更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=37&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n搞笑上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=37&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n奇幻热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=14&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n奇幻更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=14&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n奇幻上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=14&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n魔法热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=15&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n魔法更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=15&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n魔法上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=15&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n恐怖热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=29&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n恐怖更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=29&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n恐怖上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=29&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n神鬼热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=20&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n神鬼更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=20&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n神鬼上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=20&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n萌系热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=21&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n萌系更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=21&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n萌系上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=21&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n历史热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=4&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n历史更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=4&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n历史上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=4&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n美食热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=7&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n美食更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=7&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n美食上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=7&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n同人热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=30&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n同人更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=30&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n同人上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=30&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n运动热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=34&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n运动更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=34&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n运动上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=34&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n绅士热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=36&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n绅士更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=36&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n绅士上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=36&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0\n机甲热门::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=10&categoryid=0&tagid=40&status=0&usergroup=0&pay=-1&areaid=0&sort=10&iscopyright=0\n机甲更新::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=40&status=0&usergroup=0&pay=-1&areaid=0&sort=2&iscopyright=0\n机甲上架::http:\/\/m.dm5.com\/manhua-list\/dm5.ashx?d={{String(new Date()).replace('(GMT+08:00)','(中国标准时间)')}}&action=getclasscomics&pageindex=searchPage&pagesize=21&categoryid=0&tagid=40&status=0&usergroup=0&pay=-1&areaid=0&sort=18&iscopyright=0",
+        "bookSourceType" : 2,
+        "searchUrl" : "https:\/\/m.dm5.com\/search?title={{key}}&language=1",
+        "loginCheckJs" : "",
+        "bookUrlPattern" : "",
+        "enabledExplore" : true,
+        "bookSourceUrl" : "https:\/\/m.dm5.com\/",
+        "variableComment" : "",
+        "header" : "",
+        "lastUpdateTime" : 1732184308404,
+        "weight" : 0,
+        "ruleToc" : {
+          "chapterName" : "tag.a@text||text",
+          "chapterUrl" : "tag.a@href||href",
+          "chapterList" : "-ul.detail-list-select@li||-class.detail-list-1 li a||class.chapteritem"
+        },
+        "enabledCookieJar" : true,
+        "ruleSearch" : {
+          "bookUrl" : "tag.a.0@href||https:\/\/m.dm5.com\/{$.UrlKey}",
+          "author" : "tag.p.0@text||$.Author.*",
+        "kind" : "$.Categorys",
+          "coverUrl" : "tag.img@src||$.ShowPicUrlB",
+          "intro" : "p.book-list-info-desc@text",
+    "lastChapter" : "$.ComicPart||$.LastUpdateInfo@js:result.replace(unescape(\"@get:{name}\"),\"\")",
+          "bookList" : "ul.book-list@tag.li||$.UpdateComicItems.*",
+          "name" : "p.book-list-info-title@text||Title"
+        },
+        "jsLib" : "",
+        "errorMessage" : "成功",
+        "key" : "https:\/\/m.dm5.com\/"
+      }
+    
+
 ]
