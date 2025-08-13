@@ -29,6 +29,15 @@
   </tr>
   <tr>
     <td>
+      <a href="https://github.com/kooofu/yueduyuan/raw/main/%E7%AC%94%E8%B6%A3%E9%98%81%E4%B9%A6%E6%BA%90.json" download="笔趣阁书源.json">
+        <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 15px; width: 200px;">
+          点击下载笔趣阁书源
+        </button>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
       <a href="https://github.com/kooofu/yueduyuan/raw/main/%E6%BC%AB%E7%94%BB.json" download="漫画.json">
         <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 15px; width: 200px;">
           点击下载漫画源
@@ -68,6 +77,15 @@
       <a href="https://gcore.jsdelivr.net/gh/kooofu/yueduyuan@main/%E5%A5%B3%E9%A2%91%E5%B0%8F%E8%AF%B4.json" download="女频小说.json">
         <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 15px; width: 200px;">
           点击下载女频小说书源
+        </button>
+      </a>
+    </td>
+  </tr>
+   <tr>
+    <td>
+      <a href="https://gcore.jsdelivr.net/gh/kooofu/yueduyuan@main/%E7%AC%94%E8%B6%A3%E9%98%81%E4%B9%A6%E6%BA%90.json" download="笔趣阁书源.json">
+        <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 15px; width: 200px;">
+          点击下载笔趣阁书源
         </button>
       </a>
     </td>
@@ -114,6 +132,15 @@
       <a href="https://fastly.jsdelivr.net/gh/kooofu/yueduyuan@main/%E5%A5%B3%E9%A2%91%E5%B0%8F%E8%AF%B4.json" download="女频小说.json">
         <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 15px; width: 200px;">
           点击下载女频小说书源
+        </button>
+      </a>
+    </td>
+  </tr>
+   <tr>
+    <td>
+      <a href="https://fastly.jsdelivr.net/gh/kooofu/yueduyuan@main/%E7%AC%94%E8%B6%A3%E9%98%81%E4%B9%A6%E6%BA%90.json" download="笔趣阁书源.json">
+        <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 15px; width: 200px;">
+          点击下载笔趣阁书源
         </button>
       </a>
     </td>
