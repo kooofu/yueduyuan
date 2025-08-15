@@ -751,62 +751,7 @@
 "concurrentRate" : "",
 "loginUi" : ""
 },
-{
-"customOrder" : 10030,
-"ruleSearch" : {
-"intro" : ".x-book__info--chapter@text||p.-1@text",
-"name" : "p.0@text",
-"author" : ".x-book__info--author@ownText",
-"kind" : "span@text",
-"bookList" : "<js>\nif(result.match(\/请不要频繁刷新\/)){\n\tjava.toast('请不要频繁刷新，请休息几秒再试吧')\n}\nif(result.match(\/Just a moment\/)){\n\tjava.startBrowserAwait(baseUrl,\"验证\");\n\tresult=java.ajax(baseUrl);\n}result;\n<\/js>\n.x-book",
-"coverUrl" : "img@src",
-"bookUrl" : "a@href"
-},
-"concurrentRate" : "",
-"key" : "https:\/\/www.mangguoshufang.com\/",
-"weight" : 0,
 
-"searchUrl" : "https:\/\/www.mangguoshufang.com\/search\/1\/{{key}}\/{{page}}.html",
-"header" : "@js:\nJSON.stringify({\n\"Accept-Language\": \"zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7\",\n\"User-Agent\": java.getWebViewUA()\n})",
-"bookSourceGroup" : "小说",
-"variableComment" : "",
-"exploreUrl" : "@js:\nvar result = [];\njava.toast(\"🔥正在刷新列表,请稍等！\");\nvar push = (title, url, size) => result.push({\n    \"title\": title,\n    \"url\": url,\n    \"style\": {\n        \"layout_flexGrow\": 1,\n        \"layout_flexBasisPercent\": size\n    }\n});\nvar baseUrl = \"https:\/\/www.mangguoshufang.com\/0\/list\/1.html\";\nvar tag = java.ajax(baseUrl);\nif (tag) {\n    var a = org.jsoup.Jsoup.parse(tag).select(\".x-category__box--list span a\");\n    push(\"🔥分类🔥\", null, 1);\n    for (var i = 0; i < a.length ; i++) {\n        var title = a[i].text();\n        var url = a[i].attr(\"href\");\n        var size = 0.25;\n        title = String(title).replace(\/\\s\/g, \"\");\n        url = String(url).replace(\/1\\.\/,'{{page}}.');      \n        push(title, url, size);\n        if (i == 8 && a.length > 8) {\n            push(\"🔥进程🔥\", null, 1);\n        }\n        if (i == 11 && a.length > 11) {\n            push(\"🔥字数🔥\", null, 1);\n        }\n        if (i == 16 && a.length > 16) {\n            push(\"🔥章节🔥\", null, 1);\n        }\n        if (i == 21 && a.length > 21) {\n            push(\"🔥版权🔥\", null, 1);\n        }\n        if (i == 27 && a.length > 27) {\n            push(\"🔥费用🔥\", null, 1);\n        }\n        if (i == 30 && a.length > 30) {\n            push(\"🔥字母🔥\", null, 1);\n        }\n    }\n} else {\n  java.toast(\"🤔列表刷新失败！！！\");\n} \nJSON.stringify(result);",
-"respondTime" : 18000000,
-"loginUrl" : "",
-"ruleToc" : {
-"chapterUrl" : "href##.*\\\/(\\d+)\\..*##https:\/\/www.mangguoshufang.com\/wmcms\/ajax\/index.php?action=novel.getchapter&cid=$1&format=1",
-"chapterList" : ".x-catalog__list a",
-"chapterName" : "text"
-},
-"bookSourceType" : 0,
-"bookSourceUrl" : "https:\/\/www.mangguoshufang.com\/",
-"enabledCookieJar" : true,
-"ruleExplore" : {
-
-},
-"lastUpdateTime" : 1745651872271,
-"enabledExplore" : true,
-
-"bookSourceName" : "芒果书坊",
-"jsLib" : "",
-"loginCheckJs" : "",
-"ruleBookInfo" : {
-"author" : ".x-detail__info--author@text##作者："
-},
-"bookSourceComment" : "\/\/By情无羁25.04.26",
-"bookUrlPattern" : "",
-"ruleContent" : {
-"imageStyle" : "",
-"imageDecode" : "",
-"content" : "$..content[*]",
-"sourceRegex" : "",
-"payAction" : "",
-"webJs" : "",
-"title" : ""
-},
-"enabled" : true,
-"loginUi" : ""
-},
 {
 "lastUpdateTime" : 1745653935476,
 "ruleBookInfo" : {
