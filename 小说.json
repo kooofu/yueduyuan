@@ -934,74 +934,6 @@
 "weight" : 0
 },
 {
-"enabledExplore" : true,
-"bookUrlPattern" : "https:\/\/m.7dnovel.com\/book\/\\d+\/",
-"concurrentRate" : "",
-"header" : "",
-"enabledCookieJar" : true,
-"jsLib" : "",
-"bookSourceUrl" : "https:\/\/m.7dnovel.com",
-"variableComment" : "",
-"bookSourceGroup" : "小说",
-"loginUi" : "",
-"ruleToc" : {
-"chapterList" : "#myList@li@a",
-"chapterUrl" : "href@js:'https:\/\/m.7dnovel.com'+result",
-"chapterName" : "text"
-},
-"searchUrl" : "https:\/\/m.7dnovel.com\/search-result.php,{\n  \"body\": \"keywords={{key}}\",\n  \"method\": \"POST\"\n}",
-"bookSourceName" : "趣读小说",
-"weight" : 0,
-"key" : "https:\/\/m.7dnovel.com",
-"ruleBookInfo" : {
-"name" : "#title@text",
-"author" : "#author@text",
-"kind" : "#type@span.0:1@text##.*：",
-"tocUrl" : "{{$.}}##(\/\\d+)##\/book$1\/chapter-all.html###",
-"coverUrl" : "img.2@src@js:'https:\/\/m.7dnovel.com'+result",
-"intro" : "#summary@text",
-"lastChapter" : "{{@@#newchapter@text##.*：}}\n{{@@#time@text##.*：}}"
-},
-
-"ruleSearch" : {
-"bookList" : ".hot-item",
-"author" : "#author@text",
-"intro" : "#summary@text",
-"name" : "#title@text",
-"bookUrl" : "a.0@href",
-"coverUrl" : "img@src"
-},
-"ruleExplore" : {
-"name" : "#title@text||.book-title@text",
-"bookUrl" : "a.0@href",
-"author" : "#author@text||.book-author@text",
-"bookList" : ".hot-item||.book-item",
-"coverUrl" : "img@src",
-"intro" : "#summary@text||.book-summary@text"
-},
-"customOrder" : 40,
-"respondTime" : 295,
-"ruleContent" : {
-"webJs" : "",
-"nextContentUrl" : "#chapter-link@a.2@href",
-"payAction" : "",
-"title" : "",
-"imageDecode" : "",
-"sourceRegex" : "",
-"imageStyle" : "",
-"content" : "id.chapter-content@html",
-"replaceRegex" : "##\\（未完待续\\）|↑回顶部.*|首页|喜欢.*{{book.name}}.*"
-},
-"loginUrl" : "",
-"bookSourceType" : 0,
-
-"loginCheckJs" : "",
-"bookSourceComment" : "by:繁̌華̌落̌盡̌終̌成̌殤̌",
-"exploreUrl" : "@js: \nvar result = [];\njava.toast(\"🔥正在刷新列表,请稍等！\");\nvar push = (title, url, size) => result.push({\n  \"title\": title,\n  \"url\": url,\n  \"style\": {\n    \"layout_flexGrow\": 1,\n    \"layout_flexBasisPercent\": size\n  }\n});\n\nvar fl = java.ajax(\"https:\/\/m.7dnovel.com\/xuanhuan.html\");\n\nif (fl) {\n  \n  a = org.jsoup.Jsoup.parse(fl).select(\"nav a\")\npush(\"🔥分类小说🔥\",null,1)\npush(\"首页\",`https:\/\/m.7dnovel.com\/`,0.33);\npush(\"排行\",`https:\/\/m.7dnovel.com\/rankings.html`,0.33); \npush(\"完本\",`https:\/\/m.7dnovel.com\/wanben.html`,0.33);\n\n    for(var i=0;i<a.length;i++){\n     title=a[i].text()\n     url=a[i].attr(\"href\")\n     size=0.33;   \n     title = String(title).replace(\/\\s\/g, \"\");\n     url=baseUrl+String(url).replace(\/\\d+\\\/$\/,\"\");\n     \n     push(title,url,size)\n    };\n} else {\n  \n  java.toast(\"🤔列表刷新失败！！！\");\n}\nJSON.stringify(result);",
-"lastUpdateTime" : 1745491152442,
-"enabled" : true
-},
-{
 "ruleSearch" : {
 "coverUrl" : ".ptm-img-object@src",
 "bookList" : ".ptm-list-view-cell",
@@ -9018,7 +8950,325 @@
                                         },
                                         "searchUrl": "/v4/2/lists.api?keyword={{java.put('key',key)}}&form=1&package=com.yundingbook.technology",
                                         "weight": 0
-                                      }
+                                      },{
+                                          "bookSourceComment": "",
+                                          "bookSourceGroup": "",
+                                          "bookSourceName": "新笔趣塔",
+                                          "bookSourceType": 0,
+                                          "bookSourceUrl": "http://www.xbiquta.com/",
+                                          "bookUrlPattern": "http://www.xbiquta.com/\\d+/\\d+/",
+                                          "customOrder": 2,
+                                          "enabled": true,
+                                          "enabledCookieJar": true,
+                                          "enabledExplore": true,
+                                          "exploreUrl": "",
+                                          "lastUpdateTime": 1758115044173,
+                                          "loginUrl": "",
+                                          "respondTime": 5860,
+                                          "ruleBookInfo": {
+                                            "author": "id.info@tag.p.0@text##作 者：",
+                                            "coverUrl": "id.fmimg@img@src",
+                                            "init": "",
+                                            "intro": "id.intro@text",
+                                            "kind": "id.info@tag.p.2@text&&\n[property=og:novel:category]@content##最后更新：",
+                                            "lastChapter": "id.info@tag.p.3@a@text##免费章节 |正文卷 |正文 |VIP章节 ",
+                                            "name": "id.info@tag.h1@text",
+                                            "wordCount": ""
+                                          },
+                                          "ruleContent": {
+                                            "content": "id.content@html##笔趣阁.*最新章节！|最快更新.*最新章节！|最新网址.*com|最新网址.*info"
+                                          },
+                                          "ruleExplore": {
+                                            "author": "class.s5@text",
+                                            "bookList": "class.l@li",
+                                            "bookUrl": "class.s2@a@href",
+                                            "coverUrl": "class.s2@a@href<js>\nvar id = result.match(/(\\d+)\\/?$/)[1];\nvar iid = parseInt(id/1000);\n'http://www.xbiquta.com/files/article/image/'+iid+'/'+id+'/'+id+'s.jpg';\n</js>",
+                                            "intro": "",
+                                            "kind": "",
+                                            "lastChapter": "class.s3@a@text",
+                                            "name": "class.s2@a@text"
+                                          },
+                                          "ruleSearch": {
+                                            "author": "tag.td.2@text",
+                                            "bookList": "class.grid@tag.tr!0",
+                                            "bookUrl": "tag.td.0@tag.a@href",
+                                            "coverUrl": "tag.td.0@tag.a@href<js>\nvar id = result.match(/(\\d+)\\/?$/)[1];\nvar iid = parseInt(id/1000);\n'http://www.xbiquta.com/files/article/image/'+iid+'/'+id+'/'+id+'s.jpg';\n</js>",
+                                            "kind": "tag.td.4@text&&\ntag.td.5@text",
+                                            "lastChapter": "tag.td.1@tag.a@text##免费章节 |正文卷 |正文 |VIP章节 ",
+                                            "name": "tag.td.0@tag.a@text",
+                                            "wordCount": "tag.td.3@text"
+                                          },
+                                          "ruleToc": {
+                                            "chapterList": "id.list@tag.dd",
+                                            "chapterName": "tag.a@text",
+                                            "chapterUrl": "tag.a@href"
+                                          },
+                                          "searchUrl": "http://www.xbiquta.com/modules/article/search.php?s=0000&q={{key}}",
+                                          "weight": 0
+                                        },{
+                                            "bookSourceComment": "",
+                                            "bookSourceGroup": "",
+                                            "bookSourceName": "鬼吹灯（精)",
+                                            "bookSourceType": 0,
+                                            "bookSourceUrl": "http://www.gdbzkz.org/",
+                                            "bookUrlPattern": "",
+                                            "customOrder": -1,
+                                            "enabled": true,
+                                            "enabledCookieJar": false,
+                                            "enabledExplore": true,
+                                            "exploreUrl": "",
+                                            "lastUpdateTime": 1758114689451,
+                                            "loginUrl": "",
+                                            "respondTime": 2928,
+                                            "ruleBookInfo": {
+                                              "author": "class.small@tag.span.0@text##作 者：",
+                                              "coverUrl": "class.cover@img@src",
+                                              "init": "",
+                                              "intro": "class.intro@textNodes##作者.*|无弹窗.*",
+                                              "kind": "[property=og:novel:update_time]@content&&\n[property=og:novel:category]@content&&\n[property=og:novel:status]@content ",
+                                              "lastChapter": "class.small@tag.span.5@a@text##百度搜索.*",
+                                              "name": "class.info@h2@text##\\（.*|\\(.*|免费阅读|全文.*阅读|最新章节|笔趣阁|小说",
+                                              "wordCount": "class.info@class.small@tag.span.3@text##字数："
+                                            },
+                                            "ruleContent": {
+                                              "content": "id.content@html##http.*html|天才一秒记住.*org|请记住本书首发域.*org"
+                                            },
+                                            "ruleExplore": {
+                                              "author": "class.s4@text",
+                                              "bookList": "class.l@li",
+                                              "bookUrl": "class.s2@a@href",
+                                              "coverUrl": "",
+                                              "kind": "class.s5@text",
+                                              "lastChapter": "class.s3@a@text",
+                                              "name": "class.s2@a@text##\\（.*|\\(.*|免费阅读|全文.*阅读|最新章节|笔趣阁|小说"
+                                            },
+                                            "ruleSearch": {
+                                              "author": "class.author@text##作者：",
+                                              "bookList": "class.bookbox@class.p10",
+                                              "bookUrl": "class.bookname@tag.a@href",
+                                              "coverUrl": "class.bookimg@img@src",
+                                              "intro": "class.bookinfo@p@text",
+                                              "kind": "class.cat@text##分类：",
+                                              "lastChapter": "class.update@tag.a@text##百度搜索.*",
+                                              "name": "class.bookname@tag.a@text##\\（.*|\\(.*|免费阅读|全文.*阅读|最新章节|笔趣阁|小说"
+                                            },
+                                            "ruleToc": {
+                                              "chapterList": "class.listmain@dd!0:1:2:3:4:5:6:7:8:9:10:11",
+                                              "chapterName": "tag.a@text",
+                                              "chapterUrl": "tag.a@href"
+                                            },
+                                            "searchUrl": "http://www.gdbzkz.org/s.php?ie=utf-8&q={{key}}",
+                                            "weight": 0
+                                          },{
+                                              "bookSourceComment": "25.10.30@小说迷",
+                                              "bookSourceName": "追更人",
+                                              "bookSourceType": 0,
+                                              "bookSourceUrl": "https://www.zhuigengren.com",
+                                              "customOrder": 2,
+                                              "enabled": true,
+                                              "enabledCookieJar": true,
+                                              "enabledExplore": true,
+                                              "exploreUrl": "----------------------排行榜----------------------::\n总排行榜::/rank/allvisit/\n月排行榜::/rank/monthvisit/\n周排行榜::/rank/weekvisit/\n\n----------------------分类----------------------::\n全部::/sort/{{page}}/\n玄幻::/sort/1/{{page}}/\n武侠::/sort/2/{{page}}/\n都市::/sort/3/{{page}}/\n历史::/sort/4/{{page}}/\n穿越::/sort/5/{{page}}/\n游戏::/sort/6/{{page}}/\n科幻::/sort/7/{{page}}/\n侦探::/sort/8/{{page}}/\n其他::/sort/9/{{page}}/\n\n\n----------------------完本----------------------::\n全部::/quanben/sort/{{page}}/\n玄幻::/quanben/sort/1/{{page}}/\n武侠::/quanben/sort/2/{{page}}/\n都市::/quanben/sort/3/{{page}}/\n历史::/quanben/sort/4/{{page}}/\n穿越::/quanben/sort/5/{{page}}/\n游戏::/quanben/sort/6/{{page}}/\n科幻::/quanben/sort/7/{{page}}/\n侦探::/quanben/sort/8/{{page}}/\n其他::/quanben/sort/9/{{page}}/",
+                                              "lastUpdateTime": 1761758956843,
+                                              "respondTime": 180000,
+                                              "ruleBookInfo": {
+                                                "author": "[property$=author]@content",
+                                                "coverUrl": "[property$=image]@content",
+                                                "intro": "[property$=description]@content",
+                                                "kind": "[property~=category|status|update_time]@content##\\s.*",
+                                                "lastChapter": "[property~=las?test_chapter_name]@content",
+                                                "name": "[property$=book_name]@content",
+                                                "tocUrl": ".review-more@a@href"
+                                              },
+                                              "ruleContent": {
+                                                "content": "#articlecon@p@text",
+                                                "nextContentUrl": "text.下一页@href"
+                                              },
+                                              "ruleExplore": {
+                                                "bookList": ""
+                                              },
+                                              "ruleSearch": {
+                                                "author": ".info@span@text",
+                                                "bookList": ".search-list ul li || .book-list ul li || .clearfix.1@li",
+                                                "bookUrl": "a@href",
+                                                "checkKeyWord": "没钱修什么仙",
+                                                "coverUrl": "mip-img@src",
+                                                "intro": ".intro@text",
+                                                "kind": "em@text",
+                                                "name": "a@text"
+                                              },
+                                              "ruleToc": {
+                                                "chapterList": ".attentions ul a",
+                                                "chapterName": "text",
+                                                "chapterUrl": "href",
+                                                "formatJs": "",
+                                                "nextTocUrl": "#indexselect option@value",
+                                                "updateTime": ""
+                                              },
+                                              "searchUrl": "{{cookie.removeCookie(source.key)}}\n/search/,{\n    \"body\": \"searchkey={{key}}\",\n    \"method\": \"POST\"\n}",
+                                              "weight": 0
+                                            },
+                                                {
+                                                  "bookSourceComment": "书籍来源于：https://twkan.com\n\n正常情况本书源无需代理，无需过验证，可直接使用，部分地区用户可能无法访问，需要开代理",
+                                                  "bookSourceGroup": "起点",
+                                                  "bookSourceName": "台湾小说",
+                                                  "bookSourceType": 0,
+                                                  "bookSourceUrl": "https://tw.langge.cf",
+                                                  "customOrder": 3,
+                                                  "enabled": true,
+                                                  "enabledCookieJar": true,
+                                                  "enabledExplore": true,
+                                                  "exploreUrl": "<js>\nconst data = [\n    \"玄幻奇幻\",\n    \"武侠仙侠\",\n    \"现代都市\",\n    \"历史军事\",\n    \"游戏竞技\",\n    \"科幻小说\",\n    \"恐怖灵异\",\n    \"言情小说\",\n    \"动漫同人\",\n    \"其他类型\"\n];\n\nlet categorys = [];\nconst status = [\"连载\", \"全本\"];\n\nfor (let i of status) {\n    categorys.push({\n        title: i,\n        url: `/ranking?status=${i}&page={{page}}`,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: 1\n        }\n    });\n    \n    for (let j of data) {\n        categorys.push({\n            title: j,\n            url: `/ranking?category=${j}&status=${i}&page={{page}}`,\n            style: {\n                layout_flexGrow: 1,\n                layout_flexBasisPercent: 0.25\n            }\n        });\n    }\n}\n\ncategorys.push({\n    title: \"最新\",\n    url: \"/ranking?new=1&page={{page}}\",\n    style: {\n        layout_flexGrow: 1,\n        layout_flexBasisPercent: 1\n    }\n});\n\nfor (let j of data) {\n    categorys.push({\n        title: j,\n        url: `/ranking?category=${j}&new=1&page={{page}}`,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: 0.25\n        }\n    });\n}\n\ncategorys.push({\n    title: \"字数\",\n    url: \"/ranking?wordNumber=1&page={{page}}\",\n    style: {\n        layout_flexGrow: 1,\n        layout_flexBasisPercent: 1\n    }\n});\n\nfor (let j of data) {\n    categorys.push({\n        title: j,\n        url: `/ranking?category=${j}&wordNumber=1&page={{page}}`,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: 0.25\n        }\n    });\n}\n\nJSON.stringify(categorys);\n</js>",
+                                                  "lastUpdateTime": 1761292865817,
+                                                  "loginUrl": "http://fb.langge.cf",
+                                                  "respondTime": 180000,
+                                                  "ruleBookInfo": {
+                                                    "author": "author",
+                                                    "coverUrl": "thumb_url",
+                                                    "init": "data",
+                                                    "intro": "abstract",
+                                                    "kind": "{{$.category}},{{$.status}},{{$.last_chapter_update_time}}",
+                                                    "lastChapter": "last_chapter_title",
+                                                    "name": "book_name",
+                                                    "tocUrl": "$.bookid\n<js>\njava.put('bookid',result);\n\"/catalog?bookid=\"+result;\n</js>",
+                                                    "wordCount": "word_number"
+                                                  },
+                                                  "ruleContent": {
+                                                    "content": "$.data\n<js>\nfunction cleanChapterText(text) {\n  const lines = text.split('\\n');\n  const filteredLines = lines.filter(line => {\n    return !(line.includes('第') && line.includes('章')) && \n           !line.includes('作者：') &&\n           !/^\\d{4}-\\d{2}-\\d{2}/.test(line.trim());\n  });\n  return filteredLines.join('\\n');\n}\n\ncleanChapterText(result);\n</js>"
+                                                  },
+                                                  "ruleExplore": {
+                                                    "author": "author",
+                                                    "bookList": "data",
+                                                    "bookUrl": "/detail?bookid={{$.bookid}}",
+                                                    "coverUrl": "thumb_url",
+                                                    "intro": "abstract",
+                                                    "kind": "{{$.category}},{{$.status}}",
+                                                    "lastChapter": "last_chapter_title",
+                                                    "name": "book_name",
+                                                    "wordCount": "word_number"
+                                                  },
+                                                  "ruleSearch": {
+                                                    "author": "author",
+                                                    "bookList": "data",
+                                                    "bookUrl": "/detail?bookid={{$.bookid}}",
+                                                    "checkKeyWord": "罪狱岛",
+                                                    "coverUrl": "thumb_url",
+                                                    "intro": "abstract",
+                                                    "kind": "{{$.category}},{{$.status}}",
+                                                    "lastChapter": "last_chapter_title",
+                                                    "name": "book_name",
+                                                    "wordCount": "word_number"
+                                                  },
+                                                  "ruleToc": {
+                                                    "chapterList": "data",
+                                                    "chapterName": "title",
+                                                    "chapterUrl": "$.itemid\n<js>\nlet bookid = java.get('bookid');\n`/content?bookid=${bookid}&itemid=${result}`;\n</js>"
+                                                  },
+                                                  "searchUrl": "/search?key={{key}}&page={{page}}",
+                                                  "weight": 0
+                                                },{
+                                                    "bookSourceComment": "",
+                                                    "bookSourceGroup": "小说",
+                                                    "bookSourceName": "就爱言情小说网",
+                                                    "bookSourceType": 0,
+                                                    "bookSourceUrl": "https://www.92yanqing.com",
+                                                    "customOrder": 100,
+                                                    "enabled": true,
+                                                    "enabledCookieJar": false,
+                                                    "enabledExplore": false,
+                                                    "lastUpdateTime": 1763530277870,
+                                                    "respondTime": 180000,
+                                                    "ruleBookInfo": {
+                                                      "author": "[property$=author]@content",
+                                                      "coverUrl": "[property$=image]@content",
+                                                      "intro": "[property$=description]@content",
+                                                      "kind": "[property~=category|status|update_time]@content",
+                                                      "lastChapter": "[property$=latest_chapter_name]@content",
+                                                      "name": "[property$=book_name]@content"
+                                                    },
+                                                    "ruleContent": {
+                                                      "content": "#booktxt@html",
+                                                      "nextContentUrl": "text.下一页@href"
+                                                    },
+                                                    "ruleExplore": {},
+                                                    "ruleSearch": {
+                                                      "author": "a.2@text",
+                                                      "bookList": "class.content@dl",
+                                                      "bookUrl": "a.1@href",
+                                                      "coverUrl": "img@src",
+                                                      "intro": "dd.0@text",
+                                                      "kind": "span.0@text",
+                                                      "name": "a.1@text",
+                                                      "wordCount": "span.1@text"
+                                                    },
+                                                    "ruleToc": {
+                                                      "chapterList": "class.all@ul@li@a",
+                                                      "chapterName": "text",
+                                                      "chapterUrl": "href"
+                                                    },
+                                                    "searchUrl": "{{cookie.removeCookie(source.getKey())}}\nhttps://www.92yanqing.com/s/?searchkey={{key}}",
+                                                    "weight": 0
+                                                  },{
+                                                      "bookSourceComment": "正常情况本书源无需代理，无需过验证，可直接使用，部分地区用户可能无法访问，需要开代理",
+                                                      "bookSourceGroup": "起点",
+                                                      "bookSourceName": "🌐 69书吧",
+                                                      "bookSourceType": 0,
+                                                      "bookSourceUrl": "https://69shuba.czyl.cf",
+                                                      "customOrder": 3,
+                                                      "enabled": true,
+                                                      "enabledCookieJar": true,
+                                                      "enabledExplore": true,
+                                                      "exploreUrl": "<js>\nconst data = [\n    \"玄幻魔法\",\n    \"修真武侠\",\n    \"言情小说\",\n    \"历史军事\",\n    \"游戏竞技\",\n    \"科幻空间\",\n    \"悬疑惊悚\",\n    \"同人小说\",\n    \"都市小说\",\n    \"官场职场\",\n    \"穿越时空\",\n    \"青春校园\"\n];\n\nlet categorys = [];\nconst status = [\"连载\", \"全本\"];\n\nfor (let i of status) {\n    categorys.push({\n        title: i,\n        url: `/ranking?status=${i}&page={{page}}`,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: 1\n        }\n    });\n    \n    for (let j of data) {\n        categorys.push({\n            title: j,\n            url: `/ranking?category=${j}&status=${i}&page={{page}}`,\n            style: {\n                layout_flexGrow: 1,\n                layout_flexBasisPercent: 0.25\n            }\n        });\n    }\n}\n\ncategorys.push({\n    title: \"最新\",\n    url: \"/ranking?new=1&page={{page}}\",\n    style: {\n        layout_flexGrow: 1,\n        layout_flexBasisPercent: 1\n    }\n});\n\nfor (let j of data) {\n    categorys.push({\n        title: j,\n        url: `/ranking?category=${j}&new=1&page={{page}}`,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: 0.25\n        }\n    });\n}\n\ncategorys.push({\n    title: \"字数\",\n    url: \"/ranking?wordNumber=1&page={{page}}\",\n    style: {\n        layout_flexGrow: 1,\n        layout_flexBasisPercent: 1\n    }\n});\n\nfor (let j of data) {\n    categorys.push({\n        title: j,\n        url: `/ranking?category=${j}&wordNumber=1&page={{page}}`,\n        style: {\n            layout_flexGrow: 1,\n            layout_flexBasisPercent: 0.25\n        }\n    });\n}\n\nJSON.stringify(categorys);\n</js>",
+                                                      "lastUpdateTime": 1760956737830,
+                                                      "loginUrl": "http://fb.langge.cf",
+                                                      "respondTime": 8094,
+                                                      "ruleBookInfo": {
+                                                        "author": "author",
+                                                        "coverUrl": "thumb_url",
+                                                        "init": "data",
+                                                        "intro": "abstract",
+                                                        "kind": "{{$.category}},{{$.status}},{{$.last_chapter_update_time}}",
+                                                        "lastChapter": "last_chapter_title",
+                                                        "name": "book_name",
+                                                        "tocUrl": "$.bookid\n<js>\njava.put('bookid',result);\n\"/catalog?bookid=\"+result;\n</js>",
+                                                        "wordCount": "word_number"
+                                                      },
+                                                      "ruleContent": {
+                                                        "content": "$.data\n<js>\nfunction cleanChapterText(text) {\n  const lines = text.split('\\n');\n  const filteredLines = lines.filter(line => {\n    return !(line.includes('第') && line.includes('章')) && \n           !line.includes('作者：') &&\n           !/^\\d{4}-\\d{2}-\\d{2}/.test(line.trim());\n  });\n  return filteredLines.join('\\n');\n}\n\ncleanChapterText(result);\n</js>"
+                                                      },
+                                                      "ruleExplore": {
+                                                        "author": "author",
+                                                        "bookList": "data",
+                                                        "bookUrl": "/detail?bookid={{$.bookid}}",
+                                                        "coverUrl": "thumb_url",
+                                                        "intro": "abstract",
+                                                        "kind": "{{$.category}},{{$.status}}",
+                                                        "lastChapter": "last_chapter_title",
+                                                        "name": "book_name",
+                                                        "wordCount": "word_number"
+                                                      },
+                                                      "ruleSearch": {
+                                                        "author": "author",
+                                                        "bookList": "data",
+                                                        "bookUrl": "/detail?bookid={{$.bookid}}",
+                                                        "checkKeyWord": "罪狱岛",
+                                                        "coverUrl": "thumb_url",
+                                                        "intro": "abstract",
+                                                        "kind": "{{$.category}},{{$.status}}",
+                                                        "lastChapter": "last_chapter_title",
+                                                        "name": "book_name",
+                                                        "wordCount": "word_number"
+                                                      },
+                                                      "ruleToc": {
+                                                        "chapterList": "data",
+                                                        "chapterName": "title",
+                                                        "chapterUrl": "$.itemid\n<js>\nlet bookid = java.get('bookid');\n`/content?bookid=${bookid}&itemid=${result}`;\n</js>"
+                                                      },
+                                                      "searchUrl": "/search?key={{key}}&page={{page}}",
+                                                      "weight": 0
+                                                    }
+                                              
+
                    
                   
 
