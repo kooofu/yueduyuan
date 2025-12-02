@@ -4072,7 +4072,7 @@
 "jsLib" : "",
 "variableComment" : "",
 "header" : "",
-"customOrder" : 3,
+"customOrder" : 10,
 "loginUrl" : "",
 
 "ruleSearch" : {
@@ -6833,74 +6833,6 @@
 "bookSourceComment" : ""
 },
 {
-"key" : "http:\/\/www.gdbzkz.com\/#pb1101",
-"enabled" : true,
-"ruleExplore" : {
-"lastChapter" : "class.s3@a@text",
-"bookList" : "class.l@li",
-"bookUrl" : "class.s2@a@href",
-"name" : "class.s2@a@text##\\（.*|\\(.*|免费阅读|全文.*阅读|最新章节|笔趣阁|小说",
-"author" : "class.s4@text",
-"kind" : "class.s5@text"
-},
-"ruleToc" : {
-"chapterList" : "class.listmain@dd!0:1:2:3:4:5:6:7:8:9:10:11",
-"chapterUrl" : "tag.a@href",
-"chapterName" : "tag.a@text"
-},
-
-"bookSourceComment" : "",
-"lastUpdateTime" : 1742798891289,
-"bookUrlPattern" : "",
-"searchUrl" : "http:\/\/www.gdbzkz.com\/s.php?ie=utf-8&q={{key}}",
-"bookSourceName" : "♜鬼吹灯① #破冰1101",
-"loginUrl" : "",
-"weight" : 0,
-"bookSourceGroup" : "",
-"ruleBookInfo" : {
-"coverUrl" : "class.cover@img@src",
-"author" : "class.small@tag.span.0@text##作 者：",
-"wordCount" : "class.info@class.small@tag.span.3@text##字数：",
-"kind" : "class.info@class.small@tag.span.4@text&&\nclass.info@class.small@tag.span.1@text&&\nclass.info@class.small@tag.span.2@text##分类：|状态：|更新时间：",
-"name" : "class.info@h2@text##\\（.*|\\(.*|免费阅读|全文.*阅读|最新章节|笔趣阁|小说",
-"intro" : "class.intro@textNodes##作者.*|无弹窗.*",
-"lastChapter" : "class.small@tag.span.5@a@text##百度搜索.*"
-},
-"loginUi" : "",
-"concurrentRate" : "",
-"loginCheckJs" : "",
-"enabledExplore" : true,
-"jsLib" : "",
-"exploreUrl" : "玄幻小说::\/fenlei\/1\/{{page}}.html\n仙侠小说::\/fenlei\/2\/{{page}}.html\n都市小说::\/fenlei\/3\/{{page}}.html\n军史小说::\/fenlei\/4\/{{page}}.html\n网游小说::\/fenlei\/5\/{{page}}.html\n科幻小说::\/fenlei\/6\/{{page}}.html\n恐怖小说::\/fenlei\/7\/{{page}}.html",
-
-"variableComment" : "",
-"ruleSearch" : {
-"bookList" : "class.bookbox@class.p10>",
-"author" : "class.author@text##作者：",
-"coverUrl" : "class.bookimg@img@src",
-"kind" : "class.cat@text##分类：",
-"intro" : "class.bookinfo@p@text",
-"lastChapter" : "class.update@tag.a@text##百度搜索.*",
-"name" : "class.bookname@tag.a@text##\\（.*|\\(.*|免费阅读|全文.*阅读|最新章节|笔趣阁|小说",
-"bookUrl" : "class.bookname@tag.a@href"
-},
-"bookSourceType" : 0,
-"enabledCookieJar" : false,
-"header" : "",
-"bookSourceUrl" : "http:\/\/www.gdbzkz.com\/#pb1101",
-"customOrder" : 25,
-"respondTime" : 357,
-"ruleContent" : {
-"imageDecode" : "",
-"content" : "id.content@html##http.*html|天才一秒记住.*com|请记住本书首发域.*com",
-"payAction" : "",
-"title" : "",
-"webJs" : "",
-"imageStyle" : "",
-"sourceRegex" : ""
-}
-},
-{
 
 "bookSourceUrl" : "http:\/\/www.00shu.com\/",
 "bookSourceComment" : "",
@@ -7746,49 +7678,6 @@
       "loginUi" : "",
       "bookSourceUrl" : "https:\/\/m.7dnovel.com##"
     },{
-        "bookSourceComment": "搜索接口@情无羁\n理论上是可以下载的 但是建议还是低并发（接口随时会被关闭 使用的未被验证的token）",
-        "bookSourceGroup": "妍希",
-        "bookSourceName": "六九书吧(直连可下载)",
-        "bookSourceType": 0,
-        "bookSourceUrl": "http://111.170.33.6:49988",
-        "concurrentRate": "1000",
-        "customOrder": 20,
-        "enabled": true,
-        "enabledCookieJar": false,
-        "enabledExplore": false,
-        "header": "@js:\nJSON.stringify({\n\t\"x-sec-token\": \"8f79170487338570cdbb178e4653ed25943a6af05f3c29043782de49fc7a8fbd2446589412f746e396a05744cf546027bc63d7391b0e86ff3551c4d8e52ac1f97a2492bcc15dba6a9e2181084ed6e3f2a4d8a7e5aa419a705c5cffc8a93f5827fce376e3c3df14b8498405ba5f2630c0fa948894f4f7e5e26840f431f50396e9\"\n\t})",
-        "lastUpdateTime": 1752849813506,
-        "respondTime": 180000,
-        "ruleBookInfo": {
-          "author": "author",
-          "coverUrl": "cover",
-          "intro": "<br> 🕰 更新时间：{{$.update}}\n 📖 最新章节：{{$.last}}\n 🏷️ 标签：{{$.tags}}丨{{$.else}}章\n 📜 简介：{{$.info}}",
-          "kind": "tags##\\|##,",
-          "lastChapter": "{{$.last}} · {{$.update}}",
-          "name": "bookname",
-          "tocUrl": "http://111.170.33.6:49988/69shuba/chapters.php?bookId={{$.bookId}}",
-          "wordCount": "{{$.else}}章"
-        },
-        "ruleContent": {
-          "content": "content"
-        },
-        "ruleExplore": {},
-        "ruleSearch": {
-          "author": "author",
-          "bookList": "data[*]",
-          "bookUrl": "surl##.*\\/(\\d+).htm##http://111.170.33.6:49988/69shuba/detail.php?bookId=$1",
-          "coverUrl": "cover",
-          "intro": "description",
-          "name": "title"
-        },
-        "ruleToc": {
-          "chapterList": "-$.chapters[*]",
-          "chapterName": "name",
-          "chapterUrl": "{{baseUrl}}##.*=(\\d+)##http://111.170.33.6:49988/69shuba/content.php?bookId=$1&chapterId={{$.id}}"
-        },
-        "searchUrl": "http://111.170.33.6:49988/69shuba/search.php?key={{key}}&page={{page}}",
-        "weight": 0
-      },{
           "bookSourceComment": "",
           "bookSourceGroup": "🎉 精选",
           "bookSourceName": "阅读助手（优+）",
@@ -8132,10 +8021,10 @@
                     },{
                         "bookSourceComment": "七猫正文接口解密",
                         "bookSourceGroup": "妍希",
-                        "bookSourceName": "🐱七猫小说 · 妍希",
+                        "bookSourceName": "🐱七猫小说",
                         "bookSourceType": 0,
                         "bookSourceUrl": "https://api-bc.wtzw.com#",
-                        "customOrder": 0,
+                        "customOrder": 12,
                         "enabled": true,
                         "enabledCookieJar": false,
                         "enabledExplore": true,
@@ -8907,7 +8796,7 @@
                                         "bookSourceName": "云顶追书",
                                         "bookSourceType": 0,
                                         "bookSourceUrl": "https://s.fdbjjc.com",
-                                        "customOrder": 5,
+                                        "customOrder": 3,
                                         "enabled": true,
                                         "enabledCookieJar": false,
                                         "enabledExplore": true,
@@ -9114,7 +9003,7 @@
                                                   "bookSourceName": "台湾小说",
                                                   "bookSourceType": 0,
                                                   "bookSourceUrl": "https://tw.langge.cf",
-                                                  "customOrder": 12,
+                                                  "customOrder": 4,
                                                   "enabled": true,
                                                   "enabledCookieJar": true,
                                                   "enabledExplore": true,
@@ -9214,7 +9103,7 @@
                                                       "bookSourceName": "🌐 69书吧",
                                                       "bookSourceType": 0,
                                                       "bookSourceUrl": "https://69shuba.czyl.cf",
-                                                      "customOrder": 13,
+                                                      "customOrder": 4,
                                                       "enabled": true,
                                                       "enabledCookieJar": true,
                                                       "enabledExplore": true,
